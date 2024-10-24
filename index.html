@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="templates/styles/style.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>VizTech Solutions | Home</title>
+    <link rel="icon" href="images/logo.jpg" type="image/icon type">
+</head>
+<body>
+    <!--===== HEADER =====-->
+    <header>
+        <nav class="navbar navbar-expand-lg  container">
+            <img src="images/main-logo.png" id="main-logo">
+            <a class="navbar-brand ms-3" href="index.html">VizTechsolutions</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span> 
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-home active" onclick="loadPage('templates/home.html', this)">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/about.html', this)">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/services.html', this)">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/work.html', this)">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/blog.html', this)">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/contact.html', this)">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    
+
+    <main class="container pt-5 mt-5" id="content">
+        <!-- Content will be loaded here -->
+        <div id="dynamic-content" style="min-height:100vh;">
+            <!-- Default content (Home) can be loaded here on page load -->
+        </div>
+    </main>
+    <!-- whatsapp -->
+    <div class="whatsapp-btn-container my-5">
+        <a class="whatsapp-btn " href="https://wa.me/+918331994495"><i class="fab fa-whatsapp"></i> </a>
+        <span>Contact Us</span>
+    </div>
+    <footer class="footer ">
+        <p class="footer__title">VizTech Solutions</p>
+        <div class="footer__social">
+            <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+        </div>
+        <p class="footer__copy">&#169; VizTech Solutions. All rights reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to load the content dynamically
+        function loadPage(page) {
+            const contentDiv = document.getElementById('dynamic-content');
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(data => {
+                    contentDiv.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading the page:', error);
+                    contentDiv.innerHTML = `<p>Error loading content. Please try again later.</p>`;
+                });
+        }
+
+        // Load default content on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPage('templates/home.html');
+        });
+    </script>
+    <script src="templates/script/main.js"></script>
+</body>
+</html>
