@@ -126,13 +126,12 @@ header{
     height: var(--header-height);
     align-items: center;
     font-weight: var(--font-semi);
-   
   }
   
 /* Adjust for mobile view */
 @media screen and (max-width: 767px) {
-  .navbar-collapse {
-    padding: 1rem 0; 
+  header{
+    padding:0 1rem 10px 1rem;
   }
   .navbar-toggler {
     color: var(--second-color);
@@ -153,8 +152,8 @@ header{
     text-align: right;
     width: 8rem;
     padding: 0.5rem 0;
-    // background: rgb(235, 230, 230);
-    background: linear-gradient(90deg, #697f8d79, #6fa5a581);
+    background: whitesmoke;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   .nav-item:last-child {
     padding-bottom: 1rem;
@@ -182,11 +181,11 @@ header{
   left: 0;
   top: calc(100% + 0.25rem);
   background-color: var(--first-color);
+  transition: .5s linear;
 }
 
 .navbar-brand {
   color: #fff;
-  
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -243,6 +242,7 @@ header{
     font-weight: 800;
     margin-top:2rem;
  padding: 0.7rem 2rem;
+ background: #007bff;
 }
 .text-primary {
     color: #007bff;
@@ -255,8 +255,8 @@ header{
   }
   #home .homebtn{
     margin:1rem;
-float: left;  
-}
+    float: left;  
+  }
   #home {
     margin-top: -2rem;
     // padding: 1.5rem 0;
@@ -319,6 +319,10 @@ float: left;
     justify-content: center;
     align-items: flex-end; /* Align text to the right */
     text-align: right; /* Ensure text is aligned to the right */
+    background-image: url('/images/3quotesbg.jpeg');
+    background-size: cover;
+    background-position: center;
+
 }
 .branding-sub-section button{
     width: max-content;
@@ -672,9 +676,10 @@ float: left;
 
 /* ===== BUTTON STYLES ===== */
 .btn-primary {
+  background: #007bff;
+
   display: inline-block; /* Inline block for button */
   padding: 8px 25px; /* Padding for button */
-  background: linear-gradient(90deg, #007bff, #a777e3); /* Gradient background */
   color: white; /* White text color */
   border-radius: 5px; /* Rounded corners */
   text-align: center; /* Center text */
@@ -684,9 +689,6 @@ float: left;
   align-self: flex-start; /* Align button to start */
 }
 
-.btn-primary:hover {
-  background: linear-gradient(90deg, #a777e3, #007bff); /* Reverse gradient on hover */
-}
 .btn-primary.seemore{
   padding: 0.5rem 1.5rem;
   font-size: 1.5rem;
