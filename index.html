@@ -4,94 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="templates/styles/style.css">
+    <link rel="stylesheet" href="styles.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>VizTech Solutions | Home</title>
-    <link rel="icon" href="images/logo.jpg" type="image/icon type">
+    <link rel="icon" href="logo.jpg" type="image/icon type">
 </head>
 <body>
-    <!--===== HEADER =====-->
-    <header>
-        <nav class="navbar navbar-expand-lg  container">
-            <img src="images/main-logo.png" id="main-logo">
-            <a class="navbar-brand ms-3" href="index.html">VizTechsolutions</a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars"></span> 
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-home active" onclick="loadPage('templates/home.html', this)">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/about.html', this)">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/services.html', this)">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/work.html', this)">Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/blog.html', this)">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/contact.html', this)">Contact</a>
-                    </li>
-                </ul>
+
+
+<main class="container">
+
+    <!--===== HOME SECTION =====-->
+    <section class="row align-items-center home-section" id="home">
+        <div class="col-lg-6">
+            <h1 class="home__title">Welcome,<br>to <span class="text-primary">VizTech</span><br> Solutions...</h1>
+            <button onclick="loadPage('templates/contact.html', this)" class="btn btn-primary homebtn">Contact</button>
+        </div>
+        <div class="col-lg-6">
+            <img src="images/viz tech home-2.PNG" alt="Design Illustration" class="img-fluid ">
+        </div>
+    </section>
+    
+    <!--===== BRANDING SECTION =====-->
+    <section class="row align-items-center branding-section">
+        <div class="col-lg-6 d-none d-lg-block">
+            <img src="images/Designer.png" alt="Design Illustration" class="img-fluid">
+        </div>
+        <div class="col-lg-6 branding-sub-section d-none d-lg-block">
+            <h1 class="branding__title d-none d-md-block">Design,<br> Develop,<br> Deliver.</h1>
+            <h1 class="branding__title d-block d-md-none">Design, Develop, Deliver.</h1>
+            <p class="branding__subtitle">Bringing Brands to Life</p>
+            <p>Have an idea in mind? Let’s bring it to life!</p>
+            <div class="connect-btn">
+                <button onclick="loadPage('templates/contact.html', this)" class="btn btn-primary">Book a free call</button>
+                <button onclick="loadPage('templates/work.html',this)" class="btn btn-outline-primary">See Work</button>
             </div>
-        </nav>
-    </header>
-    
-    
-
-    <main class="container pt-5 mt-5" id="content">
-        <!-- Content will be loaded here -->
-        <div id="dynamic-content" style="min-height:100vh;">
-            <!-- Default content (Home) can be loaded here on page load -->
         </div>
-    </main>
-    <!-- whatsapp -->
-    <div class="whatsapp-btn-container my-5">
-        <a class="whatsapp-btn " href="https://wa.me/+918331994495"><i class="fab fa-whatsapp"></i> </a>
-        <span>Contact Us</span>
-    </div>
-    <footer class="footer ">
-        <p class="footer__title">VizTech Solutions</p>
-        <div class="footer__social">
-            <a href="https://www.facebook.com/profile.php?id=61567271925428&mibextid=ZbWKwL" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-            <a href="https://www.instagram.com/viztechsolutions.in/profilecard/?igsh=MXY3cjc5OTNzYXRuYg==" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-            <a href="https://www.linkedin.com/company/viztechsolutions.in/" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
+        <div class="col-lg-6 branding-sub-section d-block d-lg-none">
+            <h1 class="branding__title d-none d-md-block">Design,<br> Develop,<br> Deliver.</h1>
+            <h1 class="branding__title d-block d-md-none">Design, Develop, Deliver.</h1>
+            <p class="branding__subtitle">Bringing Brands to Life</p>
+            <p>Have an idea in mind? Let’s bring it to life!</p>
+            <div class="connect-btn">
+                <button onclick="loadPage('templates/contact.html', this)" class="btn btn-primary">Book a free call</button>
+                <button onclick="loadPage('templates/work.html',this)" class="btn btn-outline-primary">See Work</button>
+            </div>
         </div>
-        <p class="footer__copy">&#169; VizTech Solutions. All rights reserved</p>
-    </footer>
+        <div class="col-lg-6 d-block d-lg-none">
+            <img src="images/Designer.png" alt="Design Illustration" class="img-fluid">
+        </div>
+    </section>
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Function to load the content dynamically
-        function loadPage(page) {
-            const contentDiv = document.getElementById('dynamic-content');
-            fetch(page)
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.text();
-                })
-                .then(data => {
-                    contentDiv.innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading the page:', error);
-                    contentDiv.innerHTML = `<p>Error loading content. Please try again later.</p>`;
-                });
-        }
+    <!--===== ACCORDION SECTION =====-->
+    <section class="accordion my-5" id="accordionExample">
+        <h2 class="accordion-title">Why VizTech Solutions...?</h2>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Custom Solution for Your Brand
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>We understand that each business is different, and we invest our time in understanding your mission, goals, target audience, and vision. Our customized design solutions reflect the core of your brand to resonate with your customers, thereby standing out in a highly competitive market.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Affordable Packages with High Value
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>We offer value-driven pricing tailored to your needs, making top-tier design services accessible to businesses of all sizes. Whether you’re a startup or an established company, we provide packages that deliver high returns on investment.</p>
+                </div>
+            </div>
+        </div>
+         <!-- Accordion Item 3 -->
+         <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Commitment to Quality and Details
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>We are passionate about delivering top-quality work emphasizing precision and details. Everything matters: from designing a logo to creating a magazine layout or building an interactive responsive web. We want design excellence in every project.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Accordion Item 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Creative and Innovative Designs
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>The designs are never cookie-cutter. They are innovative solutions blended from the latest trends and timeless design principles to create a product that is new and innovative. We help keep your brand fresh, relevant, and engaging.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Accordion Item 5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Solutions Future-Ready
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>We design with scalability in mind. Our solutions grow with your business, ensuring that your designs remain relevant as your brand evolves, saving you time and costs in the future.</p>
+                </div>
+            </div>
+        </div>
+        
+        </div>
 
-        // Load default content on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            loadPage('templates/home.html');
-        });
-    </script>
-    <script src="templates/script/main.js"></script>
+    </section>
+
+
+
+</main>
+
 </body>
 </html>
