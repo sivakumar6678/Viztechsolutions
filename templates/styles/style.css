@@ -258,10 +258,12 @@ header{
     float: left;  
   }
   #home {
-    margin-top: -2rem;
-    // padding: 1.5rem 0;
+    margin-top: -3rem ;
     font-size: 2rem;
     text-align: center;
+  }
+  #home .col-lg-6:last-child {
+    margin-top: -10rem;
   }
 
   .home__title {
