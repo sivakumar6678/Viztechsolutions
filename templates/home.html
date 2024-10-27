@@ -28,10 +28,10 @@
     
     <!--===== BRANDING SECTION =====-->
     <section class="row align-items-center branding-section">
-        <div class="col-lg-6">
+        <div class="col-lg-6 d-none d-lg-block">
             <img src="images/Designer.png" alt="Design Illustration" class="img-fluid">
         </div>
-        <div class="col-lg-6 branding-sub-section">
+        <div class="col-lg-6 branding-sub-section d-none d-lg-block">
             <h1 class="branding__title d-none d-md-block">Design,<br> Develop,<br> Deliver.</h1>
             <h1 class="branding__title d-block d-md-none">Design, Develop, Deliver.</h1>
             <p class="branding__subtitle">Bringing Brands to Life</p>
@@ -40,6 +40,19 @@
                 <button onclick="loadPage('templates/contact.html', this)" class="btn btn-primary">Book a free call</button>
                 <button onclick="loadPage('templates/work.html',this)" class="btn btn-outline-primary">See Work</button>
             </div>
+        </div>
+        <div class="col-lg-6 branding-sub-section d-block d-lg-none">
+            <h1 class="branding__title d-none d-md-block">Design,<br> Develop,<br> Deliver.</h1>
+            <h1 class="branding__title d-block d-md-none">Design, Develop, Deliver.</h1>
+            <p class="branding__subtitle">Bringing Brands to Life</p>
+            <p>Have an idea in mind? Let’s bring it to life!</p>
+            <div class="connect-btn">
+                <button onclick="loadPage('templates/contact.html', this)" class="btn btn-primary">Book a free call</button>
+                <button onclick="loadPage('templates/work.html',this)" class="btn btn-outline-primary">See Work</button>
+            </div>
+        </div>
+        <div class="col-lg-6 d-block d-lg-none">
+            <img src="images/Designer.png" alt="Design Illustration" class="img-fluid">
         </div>
     </section>
     
