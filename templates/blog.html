@@ -11,56 +11,84 @@
     <link rel="icon" href="logo.jpg" type="image/icon type">
 </head>
 <body>
-    <main class="container">
-        <!-- Blog Intro Section -->
-        <section class="blog-intro text-center">
-            <h1 class="blog-title">UI/UX Insights Blog</h1>
-            <h3 class="blog-description">Stay updated with our latest articles on UI/UX design and development.
-                <br> Explore expert insights, trends, and best practices to enhance digital experiences.
-            </h3>
-        </section>
-
-        <!-- First Blog Card Section -->
-        <section class="row mainblog">
-            <div class="col-12">
-                <div class="blog-card">
-                    <img src="../images/Brown Minimalist Beauty Blog Banner.png" alt="VizTechsolutions Story" class="card-img-top blog-image-brandname">
-                    <div class="card-body">
-                        <h3 class="card-title">VizTechsolutions.in: A Story of Design, Technology, and Breaking Comfort Zones</h3>
-                        <p class="text-muted">October 26, 2024</p>
-                        <p class="card-text">Discover the journey of VizTechsolutions, born from a desire to create something beyond traditional career paths. From freelancing to launching a company, this story blends creativity with technology to build impactful visual narratives.</p>
-                        <a href="https://viztechsolutions.blogspot.com/2024/10/viztechsolutionsin-story-of-design.html" class="btn btn-primary">Read Full Story</a>
+    <main class="container-fluid">
+        <div class="blog-header">
+            <h1 class="blog-title">OUR BLOG</h1>
+            <p class="blog-description">
+                Our blog is a space where we share insights, tips, and inspirations on UI/UX design, 
+                data visualization, product design, and creative storytelling.
+            </p>
+        </div>
+        
+        <!-- =========================== BLOG CONTENT ============================ -->
+        <div class="blog-content">
+            <!-- Blog Posts Section (70%) -->
+            <main class="blog-main">
+                <div class="blog-posts">
+                    <article class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="images/Art of UI Colour art .jpg" alt="UI Color Palettes">
+                        </div>
+                        <div class="post-details">
+                            <h3>README: The Art of UI Color Palettes</h3>
+                            <p>Have you ever seen a color that instantly reminded you of a particular brand? Or found yourself feeling uneasy in a room with clashing colors? Color plays a powerful role in design, affecting emotions, usability, and brand identity.</p>
+                            <a href="https://tadimarridadapeer.blogspot.com/2024/10/the-art-of-ui-color-palettes-for-ui.html" class="read-more">Read More <i data-lucide="arrow-right"></i></a>
+                        </div>
+                    </article>
+        
+                    <article class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="images/UI Human Emotion.png" alt="Emotional Design">
+                        </div>
+                        <div class="post-details">
+                            <h3>README: The Human Touch: Elevating UI with Emotional Design</h3>
+                            <p>In the digital era, the way we engage with technology is becoming increasingly personal. The world of user interface (UI) design is not just about creating functional and efficient tools; it's about crafting experiences that resonate on a deeper emotional level.</p>
+                            <a href="https://tadimarridadapeer.blogspot.com/2024/09/the-human-touch-elevating-ui-with.html" class="read-more">Read More <i data-lucide="arrow-right"></i></a>
+                        </div>
+                    </article>
+        
+                    <article class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="images/typography.png" alt="Typography Manual">
+                        </div>
+                        <div class="post-details">
+                            <h3>README: Typography Manual : 5 Golden Rules for Perfect Design</h3>
+                            <p>Typography is an art that involves more than just selecting fonts. It's about harmony, balance, and readability in a graphic representation. Whether you're making a poster, a website, or even a magazine.</p>
+                            <a href="https://typographymanual.blogspot.com/2024/11/typography-manual-5-golden-rules-for.html" class="read-more">Read More <i data-lucide="arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        
+            <!-- Sidebar Section (30%) -->
+            <aside class="blog-sidebar">
+                <!-- Author Info -->
+                <div class="author-card">
+                    <h2>Meet the Author</h2>
+                    <div class="author-profile">
+                        <img src="images/author.jpg" alt="Author">
+                        <div class="author-info">
+                            <h3>Hello!</h3>
+                            <p>I'm the Founder & CEO of VizTechsolutions, passionate about design and AI-driven solutions.</p>
+                            <div class="author-socials">
+                                <a href="#">🌐 Website: viztechsolutions.in</a>
+                                <a href="#">📷 Instagram: @viztechsolutions.in</a>
+                                <a href="#">🔗 LinkedIn: VizTechsolutions.in</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Remaining Blog Grid Section -->
-        <section class="blog-grid row">
-            <div class="col-md-6 mb-4">
-                <div class="blog-card">
-                    <img src="images/Art of UI Colour art .jpg" alt="art of ui colour" class="card-img-top blog-image">
-                    <div class="card-body">
-                        <h3 class="card-title">The Art of UI Color Palettes</h3>
-                        <p class="card-text">Learn the art of crafting the perfect UI color palette using color theory, psychology, and harmony. Explore practical tips for choosing colors, images, and design tools like Figma. Create balanced, user-friendly interfaces with these expert insights!</p>
-                        <a href="https://tadimarridadapeer.blogspot.com/2024/10/the-art-of-ui-color-palettes-for-ui.html" class="btn btn-primary">Learn More</a>
-                    </div>
+        
+                <!-- Recent Blogs -->
+                <div class="recent-posts">
+                    <h2>Recent Blogs</h2>
+                    <ul>
+                        <li><i data-lucide="arrow-right"></i> The Art of UI Color Palettes</li>
+                        <li><i data-lucide="arrow-right"></i> The Human Touch: Elevating UI with Emotional Design</li>
+                        <li><i data-lucide="arrow-right"></i> Typography Manual: 5 Golden Rules</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="blog-card">
-                    <img src="images/UI Human Emotion.png" alt="Human Touch" class="card-img-top blog-image">
-                    <div class="card-body">
-                        <h3 class="card-title">Elevating UI with Emotional Design</h3>
-                        <p class="card-text">Discover how emotional design elevates user interfaces by blending storytelling, color theory, and typography to create meaningful, engaging experiences. Learn how each design element—from fonts to colors—shapes the user journey. Explore practical examples that showcase the impact of emotion in UI design.</p>
-                        <a href="https://tadimarridadapeer.blogspot.com/2024/09/the-human-touch-elevating-ui-with.html" class="btn btn-primary">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="text-center mb-4">
-            <button class="btn btn-primary seemore"><a href="https://tadimarridadapeer.blogspot.com/">See More</a></button>
+            </aside>
         </div>
     </main>
 
