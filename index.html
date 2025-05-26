@@ -5,55 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="templates/styles/style.css">
+    <link rel="stylesheet" href="templates/styles/premium-styles.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>VizTech Solutions | Home</title>
     <link rel="icon" href="images/logo.jpg" type="image/icon type">
 </head>
 <body>
-    <!--===== HEADER =====-->
-    <header>
-        <nav class=" navbar navbar-expand-lg  container">
-
-            <div class="logo-container">
-              <img src="images/vizlogo.jpg" alt="VizTech Solutions Logo" class="logo">
-              <span class="site-title">VizTech Solutions</span>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-logo">
+                <img src="images/vizlogo.jpg" alt="VizTech Solutions Logo">
             </div>
-            <!-- <img src="images/main-logo.png" id="main-logo"> -->
-            <!-- <a class="navbar-brand ms-3" href="index.html">VizTechsolutions</a> -->
+        </div>
+    </div>
+
+    <!--===== PREMIUM HEADER =====-->
+    <header class="premium-header">
+        <!-- Main Navigation -->
+        <nav class="navbar navbar-expand-lg container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="images/vizlogo.jpg" alt="VizTech Solutions Logo" class="logo">
+                <div class="brand-text">
+                    <span class="site-title">VizTech Solutions</span>
+                    <span class="site-tagline">Digital Excellence</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Toggle Button -->
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="fa fa-bars"></span> 
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
             </button>
             
-            <div class=" collapse navbar-collapse " id="navbarNav">
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-home active" onclick="loadPage('templates/home.html', this)">Home</a>
+                        <a class="nav-link nav-link-home active" onclick="loadPage('templates/home.html', this)">
+                            <span class="nav-link-text">Home</span>
+                            <span class="nav-link-line"></span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/about.html', this)">About</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/services.html', this)">Services</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/work.html', this)">Work</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/blog.html', this)">Blog</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" onclick="loadPage('templates/contact.html', this)">Contact</a>
-                      </li>
-                    </ul>
-                  </div>
+                        <a class="nav-link" onclick="loadPage('templates/about.html', this)">
+                            <span class="nav-link-text">About</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/services.html', this)">
+                            <span class="nav-link-text">Services</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/work.html', this)">
+                            <span class="nav-link-text">Portfolio</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="loadPage('templates/blog.html', this)">
+                            <span class="nav-link-text">Blog</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    
+                    <!-- Contact Button -->
+                    <li class="nav-item nav-item-cta">
+                        <a class="nav-contact-btn" onclick="loadPage('templates/contact.html', this)">
+                            Contact Us <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
   
-    <main class="container-fluid " id="content">
-        <!-- Content will be loaded here -->
-        <div id="dynamic-content" style="min-height:100vh;">
-            <!-- Default content (Home) can be loaded here on page load -->
+    <!-- Main Content Area -->
+    <main class="main-content" id="content">
+        <!-- Page Transition Overlay -->
+        <div class="page-transition-overlay"></div>
+        
+        <!-- Dynamic Content Container -->
+        <div id="dynamic-content" class="dynamic-content">
+            <!-- Content will be loaded here dynamically -->
         </div>
     </main>
   
@@ -62,73 +104,157 @@
        FOOTER SECTION
   ============================ -->
   <footer class="site-footer">
-
-    <div class="footer">
-      <p class="footer__title">VizTech Solutions</p>
-      <div class="footer__social">
-          <a href="https://www.facebook.com/profile.php?id=61567271925428&mibextid=ZbWKwL" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-          <a href="https://www.instagram.com/viztechsolutions.in/profilecard/?igsh=MXY3cjc5OTNzYXRuYg==" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-          <a href="https://www.linkedin.com/company/viztechsolutions.in/" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
-          <a href="https://www.behance.net/tadimardadapeer" class="footer__icon"><i class='bx bxl-behance'></i></a>
+    <!-- Footer Top with Logo and Newsletter -->
+    <div class="footer-top-wrapper">
+      <div class="container">
+        <div class="footer-top">
+          <!-- Logo and Tagline -->
+          <div class="footer-brand">
+            <div class="footer-logo-container">
+              <img src="images/vizlogo.jpg" alt="VizTech Solutions Logo" class="footer-logo">
+              <div class="footer-brand-text">
+                <h3 class="footer-title">VizTech Solutions</h3>
+                <p class="footer-tagline">Bringing your digital vision to life</p>
+              </div>
+            </div>
+            <p class="footer-description">
+              We craft exceptional digital experiences that elevate brands, engage users, and drive business growth. From stunning designs to powerful web solutions, we bring your vision to life.
+            </p>
+            <div class="footer-social">
+              <a href="https://www.facebook.com/profile.php?id=61567271925428&mibextid=ZbWKwL" class="footer-social-icon" aria-label="Facebook">
+                <i class='bx bxl-facebook'></i>
+              </a>
+              <a href="https://www.instagram.com/viztechsolutions.in/profilecard/?igsh=MXY3cjc5OTNzYXRuYg==" class="footer-social-icon" aria-label="Instagram">
+                <i class='bx bxl-instagram'></i>
+              </a>
+              <a href="https://www.linkedin.com/company/viztechsolutions.in/" class="footer-social-icon" aria-label="LinkedIn">
+                <i class='bx bxl-linkedin'></i>
+              </a>
+              <a href="https://www.behance.net/tadimardadapeer" class="footer-social-icon" aria-label="Behance">
+                <i class='bx bxl-behance'></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Newsletter Subscription -->
+          <div class="footer-newsletter">
+            <h3 class="newsletter-title">Subscribe to Our Newsletter</h3>
+            <p class="newsletter-description">Stay updated with our latest news, projects, and insights.</p>
+            <form class="newsletter-form">
+              <div class="newsletter-input-group">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-button">
+                  Subscribe <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+              <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+    
+    <!-- Footer Main Content -->
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-columns">
+          <!-- Company Column -->
+          <div class="footer-column">
+            <h4 class="footer-heading">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#" onclick="loadPage('templates/home.html', this)" class="footer-link">Home</a></li>
+              <li><a href="#" onclick="loadPage('templates/about.html', this)" class="footer-link">About Us</a></li>
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">Our Services</a></li>
+              <li><a href="#" onclick="loadPage('templates/work.html', this)" class="footer-link">Portfolio</a></li>
+              <li><a href="#" onclick="loadPage('templates/blog.html', this)" class="footer-link">Blog</a></li>
+              <li><a href="#" onclick="loadPage('templates/contact.html', this)" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
 
-    <div class="footer-container">
-      
-      <!-- Footer Top Content -->
-      <div class="footer-top">
-        <!-- PRODUCT 
-        <div class="footer-column">
-          <h3 class="footer-heading">PRODUCT</h3>
-          <p>JimmyAI</p>
-          <p>Tracify Pro</p>
-        </div>
-        -->
+          <!-- Services Column -->
+          <div class="footer-column">
+            <h4 class="footer-heading">Services</h4>
+            <ul class="footer-links">
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">UI/UX Design</a></li>
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">Web Development</a></li>
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">Brand Identity</a></li>
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">Digital Marketing</a></li>
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">Data Dashboards</a></li>
+              <li><a href="#" onclick="loadPage('templates/services.html', this)" class="footer-link">Business Development</a></li>
+            </ul>
+          </div>
 
-        <div class="footer-column">
-          <h3 class="footer-heading">QUICK LINKS</h3>
-          <p><a href="index.html">Home</a></p>
-          <p><a href="about.html">About Us</a></p>
-          <p><a href="services.html">Our Services</a></p>
-        </div>
+          <!-- Resources Column -->
+          <div class="footer-column">
+            <h4 class="footer-heading">Resources</h4>
+            <ul class="footer-links">
+              <li><a href="#" onclick="loadPage('templates/blog.html', this)" class="footer-link">Blog Articles</a></li>
+              <li><a href="#" class="footer-link">Case Studies</a></li>
+              <li><a href="#" class="footer-link">Testimonials</a></li>
+              <li><a href="#" class="footer-link">FAQs</a></li>
+              <li><a href="#" class="footer-link">Support Center</a></li>
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            </ul>
+          </div>
 
-        <div class="footer-column">
-          <h3 class="footer-heading">RESOURCES</h3>          
-          <p><a href="#">Testimonials</a></p>
-          <p><a href="#">FAQs</a></p>
-        </div>
-
-        <div class="footer-column contact-footer">
-          <h3 class="footer-heading">CONTACT US</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Chennai, TN, IND - 600091</p>
-          <p><i class="fas fa-envelope"></i> viztechsolutions.in@gmail.com</p>
-          <p><i class="fas fa-phone"></i> +91 8331994495</p>
+          <!-- Contact Column -->
+          <div class="footer-column">
+            <h4 class="footer-heading">Contact Us</h4>
+            <ul class="footer-contact-info">
+              <li>
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-text">Chennai, Tamil Nadu, India - 600091</div>
+              </li>
+              <li>
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-text">
+                  <a href="mailto:viztechsolutions.in@gmail.com">viztechsolutions.in@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="contact-text">
+                  <a href="tel:+918331994495">+91 8331994495</a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                <div class="contact-text">Mon-Fri: 9:00 AM - 6:00 PM</div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      <!-- Subscription Box -->
-      <div class="subscription-box">
-        <h2 class="subscribe-text">Get latest updates</h2>
-        <div class="subscribe-form">
-          <input type="email" placeholder="Enter your email">
-          <button class="subscribe-button">SUBSCRIBE <i class="fas fa-arrow-right"></i></button>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <p class="copyright">&copy; 2025 VizTech Solutions. All Rights Reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+            <a href="#" class="footer-bottom-link">Terms of Service</a>
+            <a href="#" class="footer-bottom-link">Cookie Policy</a>
+          </div>
         </div>
       </div>
-
-      <!-- Footer Bottom Content -->
-      <div class="footer-bottom">
-        <p>&copy; Copyright 2025 All Rights Reserved - VizTech Solutions.</p>
-        <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-        </div>
-      </div>
-
     </div>
   </footer>
 
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="templates/script/main.js"></script>
+    <script src="templates/scripts/portfolio-filter.js"></script>
+    
+    <!-- Add Font Inter from Google Fonts -->
+    <!-- Premium Font Stack -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </body>
 </html>
