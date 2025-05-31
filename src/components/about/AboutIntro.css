@@ -1,0 +1,144 @@
+/* About Intro Section Styles */
+.about-intro-section {
+  padding: 100px 0;
+  background-color: var(--light-color);
+}
+
+.about-intro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Left Side: Content */
+.about-intro-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-intro-badge {
+  display: inline-block;
+  background-color: rgba(var(--secondary-rgb), 0.1);
+  color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(var(--secondary-rgb), 0.3);
+}
+
+.about-intro-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.about-intro-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: 20px;
+}
+
+.about-intro-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.about-stat-item {
+  text-align: center;
+}
+
+.about-stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.about-stat-text {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+/* Right Side: Image */
+.about-intro-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.about-intro-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .about-intro-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-intro-section {
+    padding: 80px 0;
+  }
+  
+  .about-intro-container {
+    flex-direction: column;
+  }
+  
+  .about-intro-content,
+  .about-intro-image {
+    max-width: 100%;
+  }
+  
+  .about-intro-content {
+    order: 2;
+  }
+  
+  .about-intro-image {
+    order: 1;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-intro-section {
+    padding: 60px 0;
+  }
+  
+  .about-intro-title {
+    font-size: 2rem;
+  }
+  
+  .about-intro-text {
+    font-size: 1rem;
+  }
+  
+  .about-intro-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-intro-section {
+    padding: 40px 0;
+  }
+  
+  .about-intro-title {
+    font-size: 1.8rem;
+  }
+}

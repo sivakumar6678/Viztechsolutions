@@ -1,0 +1,139 @@
+/* Process Section Styles */
+.process-section {
+  padding: 100px 0;
+  background-color: var(--gray-50);
+  position: relative;
+}
+
+.process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Process Header */
+.process-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.process-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.process-description {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* Process Steps */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.process-step {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-step:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.process-step-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(var(--secondary-rgb), 0.1);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  line-height: 1;
+}
+
+.process-step-content {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.process-step-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .process-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .process-section {
+    padding: 80px 0;
+  }
+  
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process-section {
+    padding: 60px 0;
+  }
+  
+  .process-title {
+    font-size: 2rem;
+  }
+  
+  .process-description {
+    font-size: 1rem;
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .process-section {
+    padding: 40px 0;
+  }
+  
+  .process-title {
+    font-size: 1.8rem;
+  }
+  
+  .process-step {
+    padding: 25px;
+  }
+  
+  .process-step-number {
+    font-size: 3rem;
+  }
+  
+  .process-step-title {
+    font-size: 1.3rem;
+  }
+}

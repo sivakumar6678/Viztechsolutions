@@ -1,0 +1,373 @@
+/* Footer Styles */
+.site-footer {
+  background-color: var(--primary-color);
+  color: var(--gray-300);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Footer Top Section */
+.footer-top-wrapper {
+  background-color: var(--primary-dark);
+  padding: 60px 0;
+  position: relative;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Footer Brand Section */
+.footer-brand {
+  flex: 1;
+  min-width: 300px;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-title {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--light-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: var(--gray-300);
+}
+
+/* Footer Social Icons */
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.footer-social-icon:hover {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  transform: translateY(-5px);
+}
+
+/* Newsletter Section */
+.footer-newsletter {
+  flex: 1;
+  min-width: 300px;
+}
+
+.newsletter-title {
+  font-size: 1.3rem;
+  color: var(--light-color);
+  margin-bottom: 15px;
+}
+
+.newsletter-description {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: var(--gray-300);
+}
+
+.newsletter-form {
+  margin-bottom: 10px;
+}
+
+.newsletter-input-group {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 30px 0 0 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-color);
+  font-size: 0.9rem;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.newsletter-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-button:hover {
+  background-color: var(--secondary-dark);
+}
+
+.newsletter-privacy {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
+
+/* Footer Main Section */
+.footer-main {
+  padding: 60px 0;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-heading {
+  color: var(--light-color);
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-link::before {
+  content: '→';
+  opacity: 0;
+  margin-right: -15px;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--secondary-color);
+  transform: translateX(20px);
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+  margin-right: 5px;
+}
+
+/* Contact Info */
+.footer-contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact-info li {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.contact-icon {
+  color: var(--secondary-color);
+  margin-right: 15px;
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-text {
+  color: var(--gray-300);
+}
+
+.contact-text a {
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-text a:hover {
+  color: var(--secondary-color);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  margin: 0;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom-link {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-link:hover {
+  color: var(--secondary-color);
+}
+
+/* WhatsApp Button */
+.whatsapp-btn-container {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-btn-container span {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.whatsapp-btn-container:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .footer-columns {
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    min-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-column {
+    min-width: 100%;
+  }
+}

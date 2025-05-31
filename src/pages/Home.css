@@ -1,0 +1,12 @@
+/* Home Page Styles */
+.main-content {
+  min-height: 100vh;
+  padding-top: 80px; /* To account for fixed header */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+}
