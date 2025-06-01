@@ -19,7 +19,18 @@
   background: linear-gradient(135deg, rgba(var(--primary-dark-rgb), 0.95) 0%, rgba(var(--primary-rgb), 0.9) 100%);
   z-index: 1;
 }
+.about-intro-quote-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
 
+.quote-line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
 /* Animated Shapes */
 .hero-shape {
   position: absolute;

@@ -1,0 +1,202 @@
+/* Portfolio Overview Section Styles */
+.portfolio-overview-section {
+  padding: 100px 0;
+  background-color: var(--light-color);
+}
+
+.portfolio-overview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Overview Content */
+.portfolio-overview-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.overview-badge {
+  display: inline-block;
+  background-color: rgba(var(--secondary-rgb), 0.1);
+  color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(var(--secondary-rgb), 0.3);
+}
+
+.overview-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+.overview-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: 20px;
+}
+
+.overview-highlights {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.highlight-item {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--secondary-color);
+}
+
+.highlight-item h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.highlight-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* Portfolio Achievements */
+.portfolio-achievements {
+  flex: 1;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.achievement-item {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
+}
+
+.achievement-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(var(--secondary-rgb), 0.1);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 20px;
+}
+
+.achievement-content {
+  text-align: center;
+}
+
+.achievement-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+}
+
+.achievement-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.achievement-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--gray-600);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .overview-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-overview-section {
+    padding: 80px 0;
+  }
+  
+  .portfolio-overview-container {
+    flex-direction: column;
+  }
+  
+  .portfolio-overview-content,
+  .portfolio-achievements {
+    max-width: 100%;
+  }
+  
+  .portfolio-achievements {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-overview-section {
+    padding: 60px 0;
+  }
+  
+  .overview-title {
+    font-size: 2rem;
+  }
+  
+  .overview-description {
+    font-size: 1rem;
+  }
+  
+  .portfolio-achievements {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .highlight-item {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-overview-section {
+    padding: 40px 0;
+  }
+  
+  .overview-title {
+    font-size: 1.8rem;
+  }
+  
+  .achievement-item {
+    padding: 25px 20px;
+  }
+}

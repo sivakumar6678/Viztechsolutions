@@ -51,6 +51,8 @@ const AboutIntro = () => {
         <div className="about-intro-content">
           <div className="about-intro-badge">Our Story</div>
           <h2 className="about-intro-title">Bringing Your Digital Vision to Life</h2>
+          
+
           <p className="about-intro-text">
             Founded in 2023, VizTech Solutions was born from a passion for creating exceptional digital experiences. 
             Our journey began with a simple mission: to help businesses transform their digital presence through 

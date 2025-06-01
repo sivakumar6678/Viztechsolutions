@@ -1,0 +1,242 @@
+/* Portfolio Stats Section Styles */
+.portfolio-stats-section {
+  padding: 100px 0;
+  background-color: var(--light-color);
+  position: relative;
+}
+
+.portfolio-stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Stats Header */
+.stats-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.stats-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.stats-description {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* Stats Content */
+.stats-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.stat-item {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+}
+
+.stat-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 20px;
+}
+
+.stat-content {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.stat-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--gray-600);
+}
+
+/* Technology Skills */
+.tech-skills {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+}
+
+.tech-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.tech-description {
+  font-size: 1rem;
+  color: var(--gray-600);
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tech-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.tech-percentage {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--gray-200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary-color), var(--secondary-light));
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+  width: 0%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .stats-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-stats-section {
+    padding: 80px 0;
+  }
+  
+  .stats-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-stats-section {
+    padding: 60px 0;
+  }
+  
+  .stats-title {
+    font-size: 2rem;
+  }
+  
+  .stats-description {
+    font-size: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .stat-item {
+    padding: 25px;
+  }
+  
+  .tech-skills {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-stats-section {
+    padding: 40px 0;
+  }
+  
+  .stats-title {
+    font-size: 1.8rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .tech-title {
+    font-size: 1.5rem;
+  }
+  
+  .tech-skills {
+    padding: 25px;
+  }
+}

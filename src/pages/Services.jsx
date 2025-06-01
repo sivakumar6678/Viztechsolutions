@@ -1,38 +1,33 @@
 import { useEffect } from 'react';
+import './Services.css';
+import PageHeader from '../components/common/PageHeader';
+import ServicesOverview from '../components/services/ServicesOverview';
+import ServicesList from '../components/services/ServicesList';
+import ServicesProcess from '../components/services/ServicesProcess';
+import ServicesPricing from '../components/services/ServicesPricing';
+import ServicesTestimonials from '../components/services/ServicesTestimonials';
+import ServicesCTA from '../components/services/ServicesCTA';
 
 const Services = () => {
   // Set page title
   useEffect(() => {
-    document.title = 'VizTech Solutions | Services';
+    document.title = 'Our Services | VizTech Solutions';
   }, []);
 
   return (
-    <main className="container-fluid">
-      <section className="services-hero-section">
-        <div className="services-hero-overlay"></div>
-        <div className="container">
-          <div className="services-hero-content">
-            <span className="services-hero-badge">Our Services</span>
-            <h1 className="services-hero-title">Premium Digital <span>Solutions</span></h1>
-            <p className="services-hero-description">
-              We offer a comprehensive range of digital services to help your business thrive in the digital landscape.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Services content will be added here */}
-      <section className="services-content-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 text-center">
-              <h2>Our Services Page is Coming Soon</h2>
-              <p>We're currently working on creating an amazing services page for you.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <>
+      <PageHeader 
+        title="Our Services" 
+        subtitle="Comprehensive digital solutions to transform your business"
+        background="/images/services-bg.jpg"
+      />
+      <ServicesOverview />
+      <ServicesList />
+      <ServicesProcess />
+      <ServicesPricing />
+      <ServicesTestimonials />
+      <ServicesCTA />
+    </>
   );
 };
 

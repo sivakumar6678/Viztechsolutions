@@ -1,38 +1,31 @@
 import { useEffect } from 'react';
+import './Portfolio.css';
+import PageHeader from '../components/common/PageHeader';
+import PortfolioOverview from '../components/portfolio/PortfolioOverview';
+import PortfolioFilter from '../components/portfolio/PortfolioFilter';
+import PortfolioGrid from '../components/portfolio/PortfolioGrid';
+import PortfolioStats from '../components/portfolio/PortfolioStats';
+import PortfolioCTA from '../components/portfolio/PortfolioCTA';
 
 const Portfolio = () => {
   // Set page title
   useEffect(() => {
-    document.title = 'VizTech Solutions | Portfolio';
+    document.title = 'Our Portfolio | VizTech Solutions';
   }, []);
 
   return (
-    <main className="container-fluid">
-      <section className="portfolio-hero-section">
-        <div className="portfolio-hero-overlay"></div>
-        <div className="container">
-          <div className="portfolio-hero-content">
-            <span className="portfolio-hero-badge">Our Work</span>
-            <h1 className="portfolio-hero-title">Showcasing Our <span>Creative Projects</span></h1>
-            <p className="portfolio-hero-description">
-              Explore our portfolio of successful projects that demonstrate our expertise and creativity.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio content will be added here */}
-      <section className="portfolio-content-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 text-center">
-              <h2>Our Portfolio Page is Coming Soon</h2>
-              <p>We're currently working on showcasing our amazing projects for you.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <>
+      <PageHeader 
+        title="Our Portfolio" 
+        subtitle="Showcasing our creative projects and successful client collaborations"
+        background="/images/portfolio-bg.jpg"
+      />
+      <PortfolioOverview />
+      <PortfolioFilter />
+      <PortfolioGrid />
+      <PortfolioStats />
+      <PortfolioCTA />
+    </>
   );
 };
 

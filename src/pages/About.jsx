@@ -6,8 +6,8 @@ import AboutMission from '../components/about/AboutMission';
 import AboutTeam from '../components/about/AboutTeam';
 import AboutProcess from '../components/about/AboutProcess';
 import AboutTestimonials from '../components/about/AboutTestimonials';
-// import AboutPartners from '../components/about/AboutPartners';
-// import AboutCTA from '../components/about/AboutCTA';
+import AboutPartners from '../components/about/AboutPartners';
+import AboutCTA from '../components/about/AboutCTA';
 
 const About = () => {
   // Set page title
@@ -24,11 +24,11 @@ const About = () => {
       />
       <AboutIntro />
       <AboutMission />
-      {/* <AboutTeam /> */}
+      <AboutTeam />
       <AboutProcess />
       <AboutTestimonials />
-      {/* <AboutPartners /> */}
-      {/* <AboutCTA /> */}
+      <AboutPartners />
+      <AboutCTA />
     </>
   );
 };

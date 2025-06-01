@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaArrowRight, FaEye } from 'react-icons/fa';
 import './HeroSection.css';
+import bg2 from '../../assets/images/BG3.png';
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
@@ -71,7 +72,11 @@ const HeroSection = () => {
         {/* Left Side: Content */}
         <div className="hero-content">
           <div className="hero-tagline">Digital Excellence</div>
-          
+          <div className="about-intro-quote-wrapper">
+            <hr className="quote-line" />
+            <p className="about-intro-quote">Design. Develop. Deliver.</p>
+            <hr className="quote-line" />
+          </div>
           <h1 className="hero-title">
             Transforming Ideas into <span>Digital Reality</span>
           </h1>
@@ -94,7 +99,7 @@ const HeroSection = () => {
         {/* Right Side: Image */}
         <div className="hero-image">
           <div className="hero-image-container">
-            <img src="/images/BG-2.png" alt="Digital Design Illustration" className="responsive-hero-image" />
+            <img src={bg2} alt="Digital Design Illustration" className="responsive-hero-image" />
             
             {/* Stats Card */}
             <div className="hero-stats">

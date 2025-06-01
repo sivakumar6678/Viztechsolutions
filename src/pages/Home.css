@@ -5,8 +5,20 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 992px) {
+  .main-content {
+    padding-top: 70px; /* Adjusted for tablet */
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 70px;
+    padding-top: 65px; /* Adjusted for mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding-top: 60px; /* Adjusted for small mobile */
   }
 }

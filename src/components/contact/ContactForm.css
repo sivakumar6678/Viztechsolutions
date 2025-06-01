@@ -1,0 +1,242 @@
+/* Contact Form Section Styles */
+.contact-form-section {
+  padding: 100px 0;
+  background-color: var(--gray-50);
+}
+
+.contact-form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Form Header */
+.contact-form-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.form-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.form-description {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Contact Form Card */
+.contact-form-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.form-label svg {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border: 2px solid var(--gray-300);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--gray-500);
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.form-submit-btn {
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.form-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(var(--secondary-rgb), 0.3);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-submit-btn.submitting {
+  background: linear-gradient(135deg, var(--gray-400), var(--gray-500));
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.form-note {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--gray-50);
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.form-note p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.form-note strong {
+  color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .form-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-form-section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form-section {
+    padding: 60px 0;
+  }
+  
+  .form-title {
+    font-size: 2rem;
+  }
+  
+  .form-description {
+    font-size: 1rem;
+  }
+  
+  .contact-form-card {
+    padding: 40px 30px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .form-submit-btn {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-form-section {
+    padding: 40px 0;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+  }
+  
+  .contact-form-card {
+    padding: 30px 20px;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 12px 15px;
+  }
+  
+  .form-submit-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+}

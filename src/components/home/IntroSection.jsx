@@ -64,6 +64,7 @@ const IntroSection = () => {
         
         {/* Right Side: Content */}
         <div className="intro-content">
+          
           <h3 className="intro-title">We Craft Digital Experiences That Make an Impact</h3>
           <p className="intro-description">
             At <strong>VizTech Solutions</strong>, we believe that design is more than just aesthetics—it's about crafting meaningful experiences that connect with users. Every design we create tells a story, reflecting your brand's values, vision, and purpose.
