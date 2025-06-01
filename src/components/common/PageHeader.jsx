@@ -39,13 +39,20 @@ const PageHeader = ({ title, subtitle, background }) => {
   }, []);
 
   return (
-    <div className="page-header" ref={headerRef} style={{ backgroundImage: `url(${background})` }}>
-      <div className="page-header-overlay"></div>
+    <div className="page-header" ref={headerRef}>
+      <div className="page-header-background" style={{ backgroundImage: `url(${background})` }}>
+        <div className="page-header-overlay"></div>
+      </div>
       <div className="page-header-content">
-        <h1 className="page-title">{title}</h1>
-        <p className="page-subtitle">{subtitle}</p>
         <div className="page-breadcrumbs">
-          <Link to="/">Home</Link> / <span>{title}</span>
+          <Link to="/">Home</Link>
+          <span className="breadcrumb-separator">•</span>
+          <span className="current-page">{title}</span>
+        </div>
+        <h1 className="page-title">{title}</h1>
+        {subtitle && <p className="page-subtitle">{subtitle}</p>}
+        <div className="page-header-decoration">
+          <div className="decoration-line"></div>
         </div>
       </div>
     </div>

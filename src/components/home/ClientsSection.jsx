@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React from 'react';
 import './ClientsSection.css';
 import varadha from '../../assets/images/varada logo.png';
 import rvCricketGears from '../../assets/images/RV Cricket Gears Final_page-0001.jpg';

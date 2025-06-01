@@ -1,16 +1,25 @@
-/* Page Header Styles */
+/* Modern Elegant Page Header Styles */
 .page-header {
   position: relative;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
-  margin-top: 80px; /* To account for fixed header */
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+.page-header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .page-header-overlay {
@@ -19,80 +28,187 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--primary-rgb), 0.8);
-  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-rgb), 0.85) 0%,
+    rgba(var(--secondary-rgb), 0.75) 100%
+  );
+  z-index: 2;
 }
 
 .page-header-content {
   position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+  z-index: 3;
+  max-width: 900px;
+  padding: 0 30px;
   color: white;
 }
 
-.page-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  opacity: 0.9;
-}
-
 .page-breadcrumbs {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .page-breadcrumbs a {
-  color: var(--secondary-color);
-  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .page-breadcrumbs a:hover {
   color: var(--secondary-light);
 }
 
+.breadcrumb-separator {
+  margin: 0 12px;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.current-page {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: white;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.page-header-decoration {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.decoration-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--secondary-color) 50%,
+    transparent 100%
+  );
+  border-radius: 2px;
+}
+
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .page-header-content {
+    padding: 0 25px;
+  }
+}
+
 @media (max-width: 992px) {
   .page-header {
-    height: 350px;
+    height: 240px;
   }
   
   .page-title {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .page-header-content {
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 768px) {
   .page-header {
-    height: 300px;
+    height: 220px;
   }
   
   .page-title {
     font-size: 2rem;
+    margin-bottom: 15px;
   }
   
   .page-subtitle {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  
+  .page-breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 8px;
+  }
+  
+  .decoration-line {
+    width: 50px;
+    height: 2px;
   }
 }
 
 @media (max-width: 576px) {
   .page-header {
-    height: 250px;
+    height: 200px;
   }
   
   .page-title {
     font-size: 1.8rem;
+    margin-bottom: 12px;
   }
   
   .page-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 20px;
+  }
+  
+  .page-breadcrumbs {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .page-header-content {
+    padding: 0 15px;
+  }
+  
+  .decoration-line {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    height: 180px;
+  }
+  
+  .page-title {
+    font-size: 1.6rem;
+  }
+  
+  .page-subtitle {
+    font-size: 0.85rem;
   }
 }

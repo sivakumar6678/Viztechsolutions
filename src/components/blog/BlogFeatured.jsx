@@ -2,36 +2,24 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaCalendarAlt, FaUser, FaArrowRight, FaClock } from 'react-icons/fa';
 import './BlogFeatured.css';
+import uiColorPalettesImg from '../../assets/images/blog/ui-color-palettes.jpg';
 
 const BlogFeatured = () => {
   const sectionRef = useRef(null);
 
-  const featuredPosts = [
-    {
-      id: 1,
-      title: 'The Future of Web Development: Trends to Watch in 2024',
-      excerpt: 'Discover the latest trends shaping the web development landscape, from AI integration to progressive web apps and the rise of serverless architecture.',
-      image: '/images/blog/web-development-trends.jpg',
-      category: 'Web Development',
-      author: 'Sivakumar C',
-      date: '2024-01-15',
-      readTime: '8 min read',
-      featured: true,
-      slug: 'future-web-development-trends-2024'
-    },
-    {
-      id: 2,
-      title: 'UI/UX Design Principles That Drive Conversions',
-      excerpt: 'Learn how strategic design decisions can significantly impact your conversion rates and user engagement.',
-      image: '/images/blog/ui-ux-design-principles.jpg',
-      category: 'Design',
-      author: 'Design Team',
-      date: '2024-01-10',
-      readTime: '6 min read',
-      featured: true,
-      slug: 'ui-ux-design-principles-conversions'
-    }
-  ];
+  const featuredPost = {
+    id: 1,
+    title: 'The Art of UI Color Palettes',
+    excerpt: 'Have you ever seen a color that instantly reminded you of a particular brand? Or found yourself feeling uneasy in a room with clashing colors? Color plays a powerful role in design, affecting emotions, usability, and brand identity.',
+    image: uiColorPalettesImg,
+    category: 'UI Design',
+    author: 'VizTech Solutions',
+    date: '2024-10-15',
+    readTime: '8 min read',
+    featured: true,
+    slug: 'art-of-ui-color-palettes',
+    externalUrl: 'https://tadimarridadapeer.blogspot.com/2024/10/the-art-of-ui-color-palettes-for-ui.html'
+  };
 
   useEffect(() => {
     // Using dynamic import for ScrollReveal
@@ -84,74 +72,103 @@ const BlogFeatured = () => {
       <div className="blog-featured-container">
         {/* Featured Header */}
         <div className="featured-header">
-          <div className="featured-badge">Featured Articles</div>
-          <h2 className="featured-title">Latest Insights from Our Experts</h2>
+          <div className="featured-badge">OUR BLOG</div>
+          <h1 className="featured-title">Insights & Inspirations</h1>
           <p className="featured-description">
-            Dive deep into the world of technology, design, and digital innovation with our 
-            carefully curated featured articles written by industry experts.
+            Discover our latest thoughts on UI/UX design, data visualization, and creative storytelling.
           </p>
         </div>
         
-        {/* Featured Posts Grid */}
-        <div className="featured-posts-grid">
-          {featuredPosts.map((post, index) => (
-            <article className={`featured-post ${index === 0 ? 'main-featured' : 'secondary-featured'}`} key={post.id}>
-              <div className="featured-post-image">
-                <img src={post.image} alt={post.title} />
-                <div className="featured-overlay">
-                  <div className="featured-category">{post.category}</div>
+        {/* Featured Content Grid - Blog + Author */}
+        <div className="featured-content-grid">
+          {/* Main Featured Blog */}
+          <article className="featured-post main-featured">
+            <div className="featured-post-image">
+              <img src={featuredPost.image} alt={featuredPost.title} />
+              <div className="featured-overlay">
+                <div className="featured-category">{featuredPost.category}</div>
+              </div>
+            </div>
+            
+            <div className="featured-post-content">
+              <div className="featured-post-meta">
+                <div className="meta-item">
+                  <FaUser />
+                  <span>{featuredPost.author}</span>
+                </div>
+                <div className="meta-item">
+                  <FaCalendarAlt />
+                  <span>{formatDate(featuredPost.date)}</span>
+                </div>
+                <div className="meta-item">
+                  <FaClock />
+                  <span>{featuredPost.readTime}</span>
                 </div>
               </div>
               
-              <div className="featured-post-content">
-                <div className="featured-post-meta">
-                  <div className="meta-item">
-                    <FaUser />
-                    <span>{post.author}</span>
-                  </div>
-                  <div className="meta-item">
-                    <FaCalendarAlt />
-                    <span>{formatDate(post.date)}</span>
-                  </div>
-                  <div className="meta-item">
-                    <FaClock />
-                    <span>{post.readTime}</span>
-                  </div>
-                </div>
-                
-                <h3 className="featured-post-title">
-                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                
-                <p className="featured-post-excerpt">{post.excerpt}</p>
-                
-                <Link to={`/blog/${post.slug}`} className="featured-read-more">
+              <h3 className="featured-post-title">
+                {featuredPost.externalUrl ? (
+                  <a href={featuredPost.externalUrl} target="_blank" rel="noopener noreferrer">{featuredPost.title}</a>
+                ) : (
+                  <Link to={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
+                )}
+              </h3>
+              
+              <p className="featured-post-excerpt">{featuredPost.excerpt}</p>
+              
+              {featuredPost.externalUrl ? (
+                <a href={featuredPost.externalUrl} target="_blank" rel="noopener noreferrer" className="featured-read-more">
+                  Read Full Article <FaArrowRight />
+                </a>
+              ) : (
+                <Link to={`/blog/${featuredPost.slug}`} className="featured-read-more">
                   Read Full Article <FaArrowRight />
                 </Link>
+              )}
+            </div>
+          </article>
+
+          {/* Author Section */}
+          <div className="author-section">
+            <div className="author-card">
+              <div className="author-header">
+                <div className="author-image">
+                  <img 
+                    src="https://viztechsolutions.in/images/author.jpg" 
+                    alt="VizTech Solutions Author"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="author-avatar-fallback" style={{display: 'none'}}>
+                    <span>VT</span>
+                  </div>
+                </div>
+                <h3>Meet the Author</h3>
+                <p className="author-greeting">Hello!</p>
               </div>
-            </article>
-          ))}
+              <div className="author-content">
+                <p className="author-description">
+                  I'm the Founder & CEO of VizTechsolutions, passionate about design and AI-driven solutions.
+                </p>
+                <div className="author-links">
+                  <div className="author-link">
+                    🌐 Website: <a href="https://viztechsolutions.in" target="_blank" rel="noopener noreferrer">viztechsolutions.in</a>
+                  </div>
+                  <div className="author-link">
+                    📷 Instagram: <a href="https://instagram.com/viztechsolutions.in" target="_blank" rel="noopener noreferrer">@viztechsolutions.in</a>
+                  </div>
+                  <div className="author-link">
+                    🔗 LinkedIn: <a href="https://linkedin.com/company/viztechsolutions" target="_blank" rel="noopener noreferrer">VizTechsolutions.in</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         
-        {/* Featured Stats */}
-        <div className="featured-stats">
-          <div className="stat-item">
-            <div className="stat-number">50+</div>
-            <div className="stat-label">Articles Published</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">10K+</div>
-            <div className="stat-label">Monthly Readers</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">5+</div>
-            <div className="stat-label">Expert Authors</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">Weekly</div>
-            <div className="stat-label">New Content</div>
-          </div>
-        </div>
+
       </div>
     </section>
   );
