@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
 import './Portfolio.css';
-import PageHeader from '../components/common/PageHeader';
-import PortfolioOverview from '../components/portfolio/PortfolioOverview';
-import PortfolioFilter from '../components/portfolio/PortfolioFilter';
+import PortfolioHero from '../components/portfolio/PortfolioHero';
 import PortfolioGrid from '../components/portfolio/PortfolioGrid';
-import PortfolioStats from '../components/portfolio/PortfolioStats';
+import PortfolioShowcase from '../components/portfolio/PortfolioShowcase';
 import PortfolioCTA from '../components/portfolio/PortfolioCTA';
 
 const Portfolio = () => {
@@ -15,15 +13,9 @@ const Portfolio = () => {
 
   return (
     <>
-      <PageHeader 
-        title="Our Portfolio" 
-        subtitle="Showcasing our creative projects and successful client collaborations"
-        background="/images/portfolio-bg.jpg"
-      />
-      <PortfolioOverview />
-      <PortfolioFilter />
+      <PortfolioHero />
       <PortfolioGrid />
-      <PortfolioStats />
+      <PortfolioShowcase />
       <PortfolioCTA />
     </>
   );

@@ -1,0 +1,220 @@
+/* Project Showcase Section */
+.project-showcase-section {
+  padding: 100px 0;
+  background: white;
+  position: relative;
+}
+
+.project-showcase-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Showcase Header */
+.project-showcase-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+
+.project-showcase-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-showcase-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.project-showcase-subtitle {
+  font-size: 1.2rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Showcase Content */
+.project-showcase-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.project-showcase-image {
+  position: relative;
+}
+
+.project-showcase-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.project-showcase-image:hover img {
+  transform: translateY(-10px);
+}
+
+/* Project Info */
+.project-showcase-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: var(--gray-50);
+  border-radius: 15px;
+}
+
+.project-info-item {
+  text-align: center;
+}
+
+.project-info-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-info-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Project Description */
+.project-showcase-description h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.project-showcase-description h3:first-child {
+  margin-top: 0;
+}
+
+.project-showcase-description p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-showcase-cta {
+  margin-top: 40px;
+}
+
+.project-showcase-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(var(--secondary-rgb), 0.3);
+}
+
+.project-showcase-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(var(--secondary-rgb), 0.4);
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .project-showcase-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .project-showcase-section {
+    padding: 80px 0;
+  }
+  
+  .project-showcase-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .project-showcase-info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: left;
+  }
+  
+  .project-info-item {
+    text-align: left;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-showcase-section {
+    padding: 60px 0;
+  }
+  
+  .project-showcase-header {
+    margin-bottom: 50px;
+  }
+  
+  .project-showcase-title {
+    font-size: 2rem;
+  }
+  
+  .project-showcase-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .project-showcase-info {
+    padding: 20px;
+  }
+  
+  .project-showcase-description h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-showcase-title {
+    font-size: 1.8rem;
+  }
+  
+  .project-showcase-subtitle {
+    font-size: 1rem;
+  }
+  
+  .project-showcase-button {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
