@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaPaperPlane } from 'react-icons/fa';
 import './ContactSection.css';
+
+// Contact information constants
+const CONTACT_INFO = {
+  email: 'info@viztechsolutions.in',
+  phone: '+91 83319 94495',
+  location: 'Chennai, Tamil Nadu, India'
+};
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
@@ -11,28 +17,44 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
       [name]: value
     }));
-  };
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    // In a real app, you would send this to your backend
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-  };
+    try {
+      // In a real app, you would send this to your backend
+      console.log('Form submitted:', formData);
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Show success message (you can add a toast notification here)
+      alert('Message sent successfully!');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [formData]);
 
   useEffect(() => {
     // Using dynamic import for ScrollReveal
@@ -84,15 +106,23 @@ const ContactSection = () => {
           <div className="contact-details">
             <div className="contact-item">
               <FaMapMarkerAlt />
-              <span>Chennai, Tamil Nadu, India - 600091</span>
+              <a href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`} 
+                 target="_blank" 
+                 rel="noopener noreferrer">
+                {CONTACT_INFO.location}
+              </a>
             </div>
             <div className="contact-item">
               <FaEnvelope />
-              <span>viztechsolutions.in@gmail.com</span>
+              <a href={`mailto:${CONTACT_INFO.email}`}>
+                {CONTACT_INFO.email}
+              </a>
             </div>
             <div className="contact-item">
               <FaPhoneAlt />
-              <span>+91 8331994495</span>
+              <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>
+                {CONTACT_INFO.phone}
+              </a>
             </div>
           </div>
         </div>
@@ -102,44 +132,61 @@ const ContactSection = () => {
           <h3 className="form-title">
             <FaEnvelope /> Send Us a Message
           </h3>
-          <Form onSubmit={handleSubmit}>
-            <Form.Control 
+          <form onSubmit={handleSubmit} className="contact-form-inner">
+            <input 
               type="text" 
               placeholder="Your Name" 
               name="name"
               value={formData.name}
               onChange={handleChange}
               required 
+              className="form-input"
             />
-            <Form.Control 
+            <input 
               type="email" 
               placeholder="Your Email" 
               name="email"
               value={formData.email}
               onChange={handleChange}
               required 
+              className="form-input"
             />
-            <Form.Control 
+            <input 
               type="text" 
               placeholder="Subject" 
               name="subject"
               value={formData.subject}
               onChange={handleChange}
               required 
+              className="form-input"
             />
-            <Form.Control 
-              as="textarea" 
+            <textarea 
               rows={5} 
               placeholder="Your Message" 
               name="message"
               value={formData.message}
               onChange={handleChange}
               required 
+              className="form-textarea"
             />
-            <Button type="submit" className="contact-btn">
-              Send Message
-            </Button>
-          </Form>
+            <button 
+              type="submit" 
+              className={`contact-btn ${isSubmitting ? 'submitting' : ''}`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <div className="spinner"></div>
+                  <span>Sending...</span>
+                </>
+              ) : (
+                <>
+                  <FaPaperPlane />
+                  <span>Send Message</span>
+                </>
+              )}
+            </button>
+          </form>
         </div>
       </div>
     </section>

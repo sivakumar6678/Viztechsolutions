@@ -35,6 +35,13 @@ const HeroSection = () => {
             delay: 200
           });
           
+          sr.reveal('.hero-brand-quote', {
+            distance: '0px',
+            duration: 1000,
+            delay: 600,
+            opacity: 0
+          });
+          
           sr.reveal('.hero-image', {
             origin: 'right',
             distance: '50px',
@@ -72,14 +79,12 @@ const HeroSection = () => {
         {/* Left Side: Content */}
         <div className="hero-content">
           <div className="hero-tagline">Digital Excellence</div>
-          <div className="about-intro-quote-wrapper">
-            <hr className="quote-line" />
-            <p className="about-intro-quote">Design. Develop. Deliver.</p>
-            <hr className="quote-line" />
-          </div>
           <h1 className="hero-title">
             Transforming Ideas into <span>Digital Reality</span>
           </h1>
+          <div className="hero-brand-quote">
+            Design. Develop. Deliver.
+          </div>
           
           <p className="hero-description">
             We craft exceptional digital experiences that elevate brands, engage users, and drive business growth. 
