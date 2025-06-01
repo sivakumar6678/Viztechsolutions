@@ -1,6 +1,7 @@
 /* Services Page Styles */
 .services-page {
   min-height: 100vh;
+  margin-top: 20px; /* Space for fixed navigation */
 }
 
 /* Additional page-specific styles can be added here */

@@ -22,37 +22,37 @@ const ServicesSection = () => {
     },
     {
       id: 2,
-      icon: appdevelopment,
-      title: 'Web Development',
-      description: 'We build responsive, fast, and secure websites that deliver exceptional user experiences across all devices.',
-      link: '/services'
-    },
-    {
-      id: 3,
-      icon: magazine,
-      title: 'Brand Identity',
-      description: 'We craft unique and memorable brand identities that communicate your values and resonate with your audience.',
-      link: '/services'
-    },
-    {
-      id: 4,
-      icon:   success,
-      title: 'Digital Marketing',
-      description: 'We develop strategic marketing campaigns that increase visibility, engagement, and conversions for your business.',
-      link: '/services'
-    },
-    {
-      id: 5,
       icon: dashboard,
       title: 'Data Dashboards',
       description: 'We design intuitive data visualization dashboards that transform complex data into actionable insights.',
       link: '/services'
     },
     {
-      id: 6,
-      icon: mockup,
+      id: 3,
+      icon: appdevelopment,
+      title: 'Web Development',
+      description: 'We build responsive, fast, and secure websites that deliver exceptional user experiences across all devices.',
+      link: '/services'
+    },
+    {
+      id: 4,
+      icon: success,
       title: 'Business Development',
       description: 'We provide strategic consulting to help businesses identify opportunities, overcome challenges, and achieve growth.',
+      link: '/services'
+    },
+    {
+      id: 5,
+      icon: magazine,
+      title: 'Magazine & Ad Strategy',
+      description: 'We create compelling magazine layouts and advertising strategies that engage your audience effectively.',
+      link: '/services'
+    },
+    {
+      id: 6,
+      icon: mockup,
+      title: 'Logos & Mockups',
+      description: 'We design professional logos and mockups that represent your brand perfectly with memorable designs.',
       link: '/services'
     }
   ];

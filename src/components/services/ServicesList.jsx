@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaPalette, FaCode, FaBullhorn, FaChartLine, FaMobile, FaShoppingCart } from 'react-icons/fa';
+import { FaArrowRight, FaPalette, FaCode, FaBriefcase, FaChartBar, FaNewspaper, FaImage } from 'react-icons/fa';
 import './ServicesList.css';
 import UIUX from '../../assets/images/services/UIUX Design.jpg';
 import WEB from '../../assets/images/services/Web Development.jpg';
-import DigitalMarketing from '../../assets/images/services/Business Development.jpg';
-import Brands from '../../assets/images/services/MAGZINE.jpg'
-import Mobile from '../../assets//images/services/Data Dashboards.jpg';
-
+import BusinessDev from '../../assets/images/services/Business Development.jpg';
+import DataDashboards from '../../assets/images/services/MAGZINE.jpg'
+import Magazine from '../../assets/images/services/MAGZINE.jpg';
 const ServicesList = () => {
   const sectionRef = useRef(null);
 
@@ -26,10 +25,26 @@ const ServicesList = () => {
         'Design System Creation'
       ],
       image: UIUX,
-      price: 'Starting from ₹25,000'
+      badge: 'Most Popular'
     },
     {
       id: 2,
+      icon: <FaChartBar />,
+      title: 'Data Dashboards',
+      shortDescription: 'Interactive dashboards that transform data into actionable insights',
+      fullDescription: 'We create powerful data visualization dashboards that help you understand your business metrics and make informed decisions. Our dashboards are interactive, real-time, and customizable.',
+      features: [
+        'Custom Dashboard Design',
+        'Real-time Data Integration',
+        'Interactive Visualizations',
+        'Performance Analytics',
+        'Mobile-responsive Charts'
+      ],
+      image: DataDashboards,
+      badge: 'Advanced'
+    },
+    {
+      id: 3,
       icon: <FaCode />,
       title: 'Web Development',
       shortDescription: 'Fast, secure, and scalable websites built with modern technologies',
@@ -42,71 +57,55 @@ const ServicesList = () => {
         'Performance Optimization'
       ],
       image: WEB,
-      price: 'Starting from ₹35,000'
-    },
-    {
-      id: 3,
-      icon: <FaBullhorn />,
-      title: 'Digital Marketing',
-      shortDescription: 'Strategic marketing campaigns that drive growth and engagement',
-      fullDescription: 'We develop comprehensive digital marketing strategies that increase your online visibility, engage your target audience, and drive conversions. Our data-driven approach ensures measurable results.',
-      features: [
-        'SEO & Content Marketing',
-        'Social Media Management',
-        'PPC Advertising',
-        'Email Marketing',
-        'Analytics & Reporting'
-      ],
-      image: DigitalMarketing,
-      price: 'Starting from ₹15,000/month'
+      badge: 'Essential'
     },
     {
       id: 4,
-      icon: <FaChartLine />,
-      title: 'Brand Identity',
-      shortDescription: 'Memorable brand identities that resonate with your audience',
-      fullDescription: 'We craft unique brand identities that communicate your values and connect with your target audience. From logo design to complete brand guidelines, we help you stand out in the market.',
+      icon: <FaBriefcase />,
+      title: 'Business Development',
+      shortDescription: 'Strategic planning and growth strategies for your business success',
+      fullDescription: 'We help businesses grow through strategic planning, market analysis, and innovative growth strategies. Our business development services focus on sustainable growth and competitive advantage.',
       features: [
-        'Logo Design & Branding',
-        'Brand Strategy',
-        'Visual Identity Systems',
-        'Brand Guidelines',
-        'Marketing Collateral'
+        'Market Research & Analysis',
+        'Business Strategy Planning',
+        'Growth Strategy Development',
+        'Competitive Analysis',
+        'Performance Metrics'
       ],
-      image: Brands,
-      price: 'Starting from ₹20,000'
+      image: BusinessDev,
+      badge: 'Strategic'
     },
     {
       id: 5,
-      icon: <FaMobile />,
-      title: 'Mobile App Design',
-      shortDescription: 'Intuitive mobile experiences for iOS and Android platforms',
-      fullDescription: 'We design beautiful, functional mobile applications that provide seamless user experiences across all devices. Our mobile-first approach ensures optimal performance and usability.',
+      icon: <FaNewspaper />,
+      title: 'Magazine & Ad Strategy',
+      shortDescription: 'Creative advertising and publication design that captures attention',
+      fullDescription: 'We create compelling magazine layouts and advertising strategies that engage your audience and communicate your message effectively. From concept to publication, we handle every detail.',
       features: [
-        'iOS & Android Design',
-        'User Interface Design',
-        'Interactive Prototypes',
-        'App Store Optimization',
-        'Cross-platform Solutions'
+        'Magazine Layout Design',
+        'Advertisement Creation',
+        'Content Strategy',
+        'Print & Digital Publishing',
+        'Brand Storytelling'
       ],
-      image: Mobile,
-      price: 'Starting from ₹40,000'
+      image: Magazine,
+      badge: 'Creative'
     },
     {
       id: 6,
-      icon: <FaShoppingCart />,
-      title: 'E-commerce Solutions',
-      shortDescription: 'Complete online stores that drive sales and customer satisfaction',
-      fullDescription: 'We build comprehensive e-commerce platforms that provide exceptional shopping experiences. From product catalogs to payment integration, we handle every aspect of your online store.',
+      icon: <FaImage />,
+      title: 'Logos & Mockups',
+      shortDescription: 'Professional logos and mockups that represent your brand perfectly',
+      fullDescription: 'We design memorable logos and create realistic mockups that showcase your brand identity. Our designs are versatile, scalable, and perfectly represent your business values.',
       features: [
-        'Custom E-commerce Development',
-        'Payment Gateway Integration',
-        'Inventory Management',
-        'Order Processing Systems',
-        'Customer Support Tools'
+        'Custom Logo Design',
+        'Brand Identity Creation',
+        'Product Mockups',
+        'Business Card Design',
+        'Brand Guidelines'
       ],
       image: UIUX,
-      price: 'Starting from ₹50,000'
+      badge: 'Branding'
     }
   ];
 
@@ -156,11 +155,11 @@ const ServicesList = () => {
       <div className="services-list-container">
         {/* Services Header */}
         <div className="services-list-header">
-          <h2 className="services-list-title">Our Complete Service Portfolio</h2>
+          <span className="services-badge">Our Services</span>
+          <h2 className="services-list-title">Comprehensive Digital Solutions</h2>
           <p className="services-list-description">
-            We offer a comprehensive range of digital services designed to help your business 
-            succeed in today's competitive digital landscape. Each service is tailored to meet 
-            your specific needs and business objectives.
+            Transform your business with our expert services. From stunning designs to powerful 
+            development solutions, we deliver excellence that drives results and growth.
           </p>
         </div>
         
@@ -168,12 +167,19 @@ const ServicesList = () => {
         <div className="services-grid">
           {services.map(service => (
             <div className="service-card" key={service.id}>
+              <div className="service-card-header">
+                <div className="service-badge">{service.badge}</div>
+                <div className="service-icon">
+                  {service.icon}
+                </div>
+              </div>
+              
               <div className="service-card-image">
                 <img src={service.image} alt={service.title} />
                 <div className="service-card-overlay">
-                  <div className="service-icon">
-                    {service.icon}
-                  </div>
+                  <Link to="/contact" className="service-overlay-button">
+                    Get Started <FaArrowRight />
+                  </Link>
                 </div>
               </div>
               
@@ -182,18 +188,17 @@ const ServicesList = () => {
                 <p className="service-card-description">{service.shortDescription}</p>
                 
                 <div className="service-features">
-                  <h4>What's Included:</h4>
+                  <h4>Key Features:</h4>
                   <ul>
-                    {service.features.slice(0, 3).map((feature, index) => (
+                    {service.features.slice(0, 4).map((feature, index) => (
                       <li key={index}>{feature}</li>
                     ))}
                   </ul>
                 </div>
                 
                 <div className="service-card-footer">
-                  <div className="service-price">{service.price}</div>
                   <Link to="/contact" className="service-card-button">
-                    Get Started <FaArrowRight />
+                    Start Your Project <FaArrowRight />
                   </Link>
                 </div>
               </div>

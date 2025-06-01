@@ -18,13 +18,12 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const serviceOptions = [
-    'Web Design',
+    'UI/UX Design',
+    'Data Dashboards',
     'Web Development',
-    'E-commerce Development',
-    'Mobile App Design',
-    'Brand Identity',
-    'Digital Marketing',
-    'SEO Services',
+    'Business Development',
+    'Magazine & Ad Strategy',
+    'Logos & Mockups',
     'Other'
   ];
 

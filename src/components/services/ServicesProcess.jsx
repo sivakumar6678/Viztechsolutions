@@ -1,42 +1,52 @@
-import { useEffect, useRef } from 'react';
-import { FaSearch, FaLightbulb, FaPalette, FaCode, FaRocket, FaHandshake } from 'react-icons/fa';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { FaSearch, FaLightbulb, FaPalette, FaCode, FaRocket, FaHandshake, FaCheckCircle } from 'react-icons/fa';
 import './ServicesProcess.css';
 
 const ServicesProcess = () => {
   const sectionRef = useRef(null);
+  const intervalRef = useRef(null);
+  const [activeStep, setActiveStep] = useState(0);
 
-  const processSteps = [
+  const processSteps = useMemo(() => [
     {
       id: 1,
       number: '01',
       icon: <FaSearch />,
       title: 'Discovery & Research',
-      description: 'We start by understanding your business goals, target audience, and project requirements through detailed research and analysis.',
-      duration: '1-2 weeks'
+      description: 'We dive deep into understanding your business goals, target audience, and project requirements through comprehensive research and analysis.',
+      duration: '1-2 weeks',
+      color: '#3B82F6',
+      deliverables: ['Project Brief', 'Market Research', 'User Personas', 'Requirements Document']
     },
     {
       id: 2,
       number: '02',
       icon: <FaLightbulb />,
       title: 'Strategy & Planning',
-      description: 'Based on our research, we develop a comprehensive strategy and project roadmap with clear milestones and deliverables.',
-      duration: '1 week'
+      description: 'We develop a comprehensive strategy and detailed project roadmap with clear milestones, timelines, and deliverables.',
+      duration: '1 week',
+      color: '#8B5CF6',
+      deliverables: ['Project Strategy', 'Technical Architecture', 'Timeline & Milestones', 'Resource Planning']
     },
     {
       id: 3,
       number: '03',
       icon: <FaPalette />,
       title: 'Design & Prototyping',
-      description: 'Our creative team designs intuitive interfaces and creates interactive prototypes for testing and validation.',
-      duration: '2-3 weeks'
+      description: 'Our creative team crafts intuitive interfaces and creates interactive prototypes for testing and validation.',
+      duration: '2-3 weeks',
+      color: '#EC4899',
+      deliverables: ['Wireframes', 'UI/UX Design', 'Interactive Prototypes', 'Design System']
     },
     {
       id: 4,
       number: '04',
       icon: <FaCode />,
       title: 'Development & Implementation',
-      description: 'We bring the designs to life with clean, efficient code and implement all functionality according to specifications.',
-      duration: '3-6 weeks'
+      description: 'We bring designs to life with clean, efficient code and implement all functionality according to specifications.',
+      duration: '3-6 weeks',
+      color: '#10B981',
+      deliverables: ['Frontend Development', 'Backend Development', 'Database Setup', 'API Integration']
     },
     {
       id: 5,
@@ -44,7 +54,9 @@ const ServicesProcess = () => {
       icon: <FaRocket />,
       title: 'Testing & Launch',
       description: 'Rigorous testing ensures quality and performance before we launch your project and make it live for your audience.',
-      duration: '1-2 weeks'
+      duration: '1-2 weeks',
+      color: '#F59E0B',
+      deliverables: ['Quality Testing', 'Performance Optimization', 'Security Audit', 'Live Deployment']
     },
     {
       id: 6,
@@ -52,9 +64,31 @@ const ServicesProcess = () => {
       icon: <FaHandshake />,
       title: 'Support & Maintenance',
       description: 'We provide ongoing support, maintenance, and optimization to ensure your project continues to perform at its best.',
-      duration: 'Ongoing'
+      duration: 'Ongoing',
+      color: '#EF4444',
+      deliverables: ['24/7 Support', 'Regular Updates', 'Performance Monitoring', 'Feature Enhancements']
     }
-  ];
+  ], []);
+
+  // Simple step navigation
+  const goToStep = useCallback((stepIndex) => {
+    setActiveStep(stepIndex);
+  }, []);
+
+  // Simple auto-progression
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep(current => (current + 1) % processSteps.length);
+    }, 5000); // Change step every 5 seconds
+
+    intervalRef.current = interval;
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [processSteps.length]);
 
   useEffect(() => {
     // Using dynamic import for ScrollReveal
@@ -81,12 +115,18 @@ const ServicesProcess = () => {
             delay: 100
           });
           
-          sr.reveal('.process-step', {
+          sr.reveal('.process-timeline', {
             origin: 'bottom',
             distance: '30px',
             duration: 800,
-            delay: 200,
-            interval: 100
+            delay: 200
+          });
+
+          sr.reveal('.process-showcase', {
+            origin: 'left',
+            distance: '30px',
+            duration: 800,
+            delay: 300
           });
         }
       } catch (error) {
@@ -102,61 +142,86 @@ const ServicesProcess = () => {
       <div className="services-process-container">
         {/* Process Header */}
         <div className="process-header">
-          <h2 className="process-title">Our Proven Development Process</h2>
+          <span className="process-badge">Our Process</span>
+          <h2 className="process-title">How We Bring Your Vision to Life</h2>
           <p className="process-description">
-            We follow a structured, collaborative approach that ensures transparency, 
-            quality, and timely delivery. Our process is designed to minimize risks 
-            and maximize the success of your project.
+            Our proven 6-step process ensures exceptional results through collaboration, 
+            transparency, and meticulous attention to detail at every stage.
           </p>
+          
+
         </div>
         
-        {/* Process Timeline */}
-        <div className="process-timeline">
+        {/* Process Navigation */}
+        <div className="process-navigation">
           {processSteps.map((step, index) => (
-            <div className="process-step" key={step.id}>
-              <div className="step-connector">
-                {index < processSteps.length - 1 && <div className="connector-line"></div>}
+            <div 
+              className={`nav-step ${index === activeStep ? 'active' : ''} ${index < activeStep ? 'completed' : ''}`}
+              key={step.id}
+              onClick={() => goToStep(index)}
+            >
+              <div className="nav-marker" style={{ backgroundColor: step.color }}>
+                {index < activeStep ? <FaCheckCircle /> : step.icon}
               </div>
-              
-              <div className="step-content">
-                <div className="step-header">
-                  <div className="step-number">{step.number}</div>
-                  <div className="step-icon">{step.icon}</div>
-                </div>
-                
-                <div className="step-info">
-                  <h3 className="step-title">{step.title}</h3>
-                  <p className="step-description">{step.description}</p>
-                  <div className="step-duration">
-                    <span className="duration-label">Timeline:</span>
-                    <span className="duration-value">{step.duration}</span>
-                  </div>
-                </div>
+              <div className="nav-info">
+                <span className="nav-number">{step.number}</span>
+                <span className="nav-title">{step.title}</span>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Active Step Showcase */}
+        <div className="step-showcase" key={activeStep}>
+          <div className="showcase-header">
+            <div className="showcase-icon" style={{ backgroundColor: processSteps[activeStep].color }}>
+              {processSteps[activeStep].icon}
+            </div>
+            <div className="showcase-meta">
+              <h2 className="showcase-title">{processSteps[activeStep].title}</h2>
+              <div className="showcase-info-row">
+                <span className="showcase-duration">⏱️ {processSteps[activeStep].duration}</span>
+                <span className="showcase-step">Step {activeStep + 1} of {processSteps.length}</span>
+              </div>
+            </div>
+          </div>
+          
+          <p className="showcase-description">{processSteps[activeStep].description}</p>
+          
+          <div className="showcase-deliverables">
+            <h3>📋 Key Deliverables</h3>
+            <div className="deliverables-grid">
+              {processSteps[activeStep].deliverables.map((deliverable, index) => (
+                <div 
+                  className="deliverable-item" 
+                  key={`${activeStep}-${index}`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <FaCheckCircle style={{ color: processSteps[activeStep].color }} />
+                  <span>{deliverable}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         
-        {/* Process Benefits */}
-        <div className="process-benefits">
-          <h3>Why Our Process Works</h3>
-          <div className="benefits-grid">
-            <div className="benefit-item">
-              <h4>Transparent Communication</h4>
-              <p>Regular updates and clear communication throughout the project lifecycle</p>
-            </div>
-            <div className="benefit-item">
-              <h4>Quality Assurance</h4>
-              <p>Rigorous testing and quality checks at every stage of development</p>
-            </div>
-            <div className="benefit-item">
-              <h4>Timely Delivery</h4>
-              <p>Structured approach ensures projects are delivered on time and within budget</p>
-            </div>
-            <div className="benefit-item">
-              <h4>Client Collaboration</h4>
-              <p>Your input and feedback are integral to our development process</p>
-            </div>
+        {/* Process Stats */}
+        <div className="process-stats">
+          <div className="stat-item">
+            <div className="stat-number">100+</div>
+            <div className="stat-label">Projects Completed</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">98%</div>
+            <div className="stat-label">Client Satisfaction</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">24/7</div>
+            <div className="stat-label">Support Available</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">6</div>
+            <div className="stat-label">Step Process</div>
           </div>
         </div>
       </div>

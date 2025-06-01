@@ -15,7 +15,7 @@ const ServicesTestimonials = () => {
       image: '/images/testimonials/client-1.jpg',
       quote: 'VizTech Solutions transformed our online presence completely. Their attention to detail and understanding of our brand was exceptional. The website they created has significantly increased our online sales.',
       rating: 5,
-      service: 'E-commerce Development'
+      service: 'Web Development'
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const ServicesTestimonials = () => {
       image: '/images/testimonials/client-2.jpg',
       quote: 'Working with VizTech was a game-changer for our business. They delivered a stunning website that perfectly captures our brand essence and has helped us reach a wider audience.',
       rating: 5,
-      service: 'Web Design & Development'
+      service: 'UI/UX Design'
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ const ServicesTestimonials = () => {
       image: '/images/testimonials/client-3.jpg',
       quote: 'The team at VizTech Solutions exceeded our expectations. Their creative approach and technical expertise resulted in a website that not only looks great but also performs exceptionally well.',
       rating: 5,
-      service: 'Brand Identity & Web Design'
+      service: 'Logos & Mockups'
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ const ServicesTestimonials = () => {
       image: '/images/testimonials/client-4.jpg',
       quote: 'VizTech Solutions understood our vision from day one. Their collaborative approach and attention to detail made the entire process smooth and enjoyable. Highly recommended!',
       rating: 5,
-      service: 'UI/UX Design'
+      service: 'Data Dashboards'
     }
   ];
 

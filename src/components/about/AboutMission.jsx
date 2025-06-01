@@ -25,19 +25,47 @@ const AboutMission = () => {
         });
 
         if (sectionRef.current) {
-          sr.reveal('.mission-header', {
+          sr.reveal('.about-section-header', {
             origin: 'top',
             distance: '30px',
             duration: 1000,
             delay: 100
           });
           
-          sr.reveal('.mission-card', {
+          sr.reveal('.about-who-content', {
             origin: 'bottom',
             distance: '30px',
             duration: 800,
-            delay: 200,
+            delay: 200
+          });
+          
+          sr.reveal('.service-item', {
+            origin: 'bottom',
+            distance: '30px',
+            duration: 800,
+            delay: 300
+          });
+          
+          sr.reveal('.service-tag', {
+            origin: 'bottom',
+            distance: '30px',
+            duration: 800,
+            delay: 300,
             interval: 100
+          });
+          
+          sr.reveal('.about-mission-statement', {
+            origin: 'bottom',
+            distance: '30px',
+            duration: 1000,
+            delay: 400
+          });
+          
+          sr.reveal('.about-mission-statement', {
+            origin: 'bottom',
+            distance: '30px',
+            duration: 1000,
+            delay: 400
           });
         }
       } catch (error) {
@@ -49,55 +77,71 @@ const AboutMission = () => {
   }, []);
 
   return (
-    <section className="mission-section" ref={sectionRef}>
-      <div className="mission-container">
-        {/* Mission Header */}
-        <div className="mission-header">
-          <h2 className="mission-title">Our Mission & Values</h2>
-          <p className="mission-description">
-            At VizTech Solutions, we're guided by a set of core values that define who we are and how we work.
-            These principles shape our approach to every project and client relationship.
-          </p>
+    <section className="about-content-section" ref={sectionRef}>
+      <div className="about-content-container">
+        {/* Who We Are Section */}
+        <div className="about-who-we-are">
+          <div className="about-section-header">
+            <h2 className="about-section-title">Who We Are</h2>
+            <div className="about-title-underline"></div>
+          </div>
+          <div className="about-who-content">
+            <p className="about-who-text">
+              Founded with a vision to blend visualization and technology, VizTechsolutions is a design-driven 
+              company that delivers innovative solutions tailored to your business needs. Whether you're a startup, 
+              a growing business, or an established brand, we help you build impactful digital experiences that 
+              leave a lasting impression.
+            </p>
+          </div>
         </div>
-        
-        {/* Mission Cards */}
-        <div className="mission-cards">
-          <div className="mission-card">
-            <div className="mission-card-icon">
-              <img src={missionicons} alt="Mission Icon" />
-            </div>
-            <h3 className="mission-card-title">Our Mission</h3>
-            <p className="mission-card-text">
-              To empower businesses with innovative digital solutions that drive growth, enhance user experiences, 
-              and create lasting value. We strive to be a trusted partner in our clients' digital journey, 
-              helping them navigate the complexities of the digital landscape with confidence.
-            </p>
+
+        {/* What We Offer Section */}
+        <div className="about-what-we-offer">
+          <div className="about-section-header">
+            <h2 className="about-section-title">What We Offer</h2>
+            <div className="about-title-underline"></div>
           </div>
           
-          <div className="mission-card">
-            <div className="mission-card-icon">
-              <img src={visionicons} alt="Vision Icon" />
+          <div className="services-tags">
+            <div className="service-tag">
+              <span className="service-icon">🎨</span>
+              <span className="service-name">UI/UX Design</span>
             </div>
-            <h3 className="mission-card-title">Our Vision</h3>
-            <p className="mission-card-text">
-              To be recognized as a leading digital agency that sets new standards in design excellence and 
-              technological innovation. We envision a future where our creative solutions help businesses 
-              of all sizes thrive in an increasingly digital world.
-            </p>
+            <div className="service-tag">
+              <span className="service-icon">🏷️</span>
+              <span className="service-name">Logo Branding</span>
+            </div>
+            <div className="service-tag">
+              <span className="service-icon">📱</span>
+              <span className="service-name">Product Prototyping</span>
+            </div>
+            <div className="service-tag">
+              <span className="service-icon">📖</span>
+              <span className="service-name">Magazine Publications</span>
+            </div>
+            <div className="service-tag">
+              <span className="service-icon">📈</span>
+              <span className="service-name">Marketing Strategies</span>
+            </div>
+            <div className="service-tag">
+              <span className="service-icon">📊</span>
+              <span className="service-name">Business Analytics</span>
+            </div>
+            <div className="service-tag">
+              <span className="service-icon">💻</span>
+              <span className="service-name">Web Solutions</span>
+            </div>
           </div>
-          
-          <div className="mission-card">
-            <div className="mission-card-icon">
-              <img src={valuesicons} alt="Values Icon" />
-            </div>
-            <h3 className="mission-card-title">Our Values</h3>
-            <ul className="mission-values-list">
-              <li><strong>Excellence:</strong> We pursue the highest standards in everything we do</li>
-              <li><strong>Innovation:</strong> We embrace creativity and forward-thinking approaches</li>
-              <li><strong>Integrity:</strong> We operate with honesty, transparency, and ethical practices</li>
-              <li><strong>Collaboration:</strong> We believe in the power of teamwork and partnership</li>
-              <li><strong>Client-Centric:</strong> We prioritize our clients' needs and success</li>
-            </ul>
+        </div>
+
+        {/* Mission Statement */}
+        <div className="about-mission-statement">
+          <div className="mission-statement-content">
+            <blockquote className="mission-quote">
+              "At VizTech Solutions, we aim to deliver innovative design solutions while ensuring all client 
+              requirements are met. We view design as a way to tell a compelling story, helping businesses 
+              shape their unique identities."
+            </blockquote>
           </div>
         </div>
       </div>

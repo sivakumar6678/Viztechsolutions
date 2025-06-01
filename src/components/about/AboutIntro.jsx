@@ -23,14 +23,14 @@ const AboutIntro = () => {
         });
 
         if (sectionRef.current) {
-          sr.reveal('.about-intro-content', {
+          sr.reveal('.about-hero-content', {
             origin: 'left',
             distance: '50px',
             duration: 1000,
             delay: 200
           });
           
-          sr.reveal('.about-intro-image', {
+          sr.reveal('.about-hero-image', {
             origin: 'right',
             distance: '50px',
             duration: 1000,
@@ -46,46 +46,63 @@ const AboutIntro = () => {
   }, []);
 
   return (
-    <section className="about-intro-section" ref={sectionRef}>
-      <div className="about-intro-container">
-        <div className="about-intro-content">
-          <div className="about-intro-badge">Our Story</div>
-          <h2 className="about-intro-title">Bringing Your Digital Vision to Life</h2>
+    <section className="about-hero-section" ref={sectionRef}>
+      <div className="about-hero-container">
+        {/* Hero Content */}
+        <div className="about-hero-content">
+          <div className="about-hero-badge">About VizTech Solutions</div>
+          <h1 className="about-hero-title">
+            Crafting Meaningful Digital Experiences
+          </h1>
+          <p className="about-hero-subtitle">
+            We believe that design is more than just aesthetics—it's about creating meaningful 
+            experiences that connect with users and tell compelling stories.
+          </p>
           
-
-          <p className="about-intro-text">
-            Founded in 2023, VizTech Solutions was born from a passion for creating exceptional digital experiences. 
-            Our journey began with a simple mission: to help businesses transform their digital presence through 
-            innovative design and technology solutions.
-          </p>
-          <p className="about-intro-text">
-            What started as a small team of dedicated designers and developers has grown into a full-service 
-            digital agency, serving clients across various industries. Our commitment to quality, creativity, 
-            and client satisfaction has been the cornerstone of our success.
-          </p>
-          <p className="about-intro-text">
-            Today, we continue to push the boundaries of digital design and development, helping our clients 
-            stay ahead in an ever-evolving digital landscape. Our team combines technical expertise with 
-            creative thinking to deliver solutions that not only look great but also drive results.
-          </p>
-          <div className="about-intro-stats">
-            <div className="about-stat-item">
-              <div className="about-stat-number">12+</div>
-              <div className="about-stat-text">Projects Completed</div>
+          <div className="about-hero-description">
+            <p>
+              At VizTechsolutions, we believe that design is more than just aesthetics—it's about crafting meaningful 
+              experiences that connect with users. Every design we create tells a story, reflecting your brand's values, 
+              vision, and purpose.
+            </p>
+            <p>
+              We specialize in UI/UX design, web development, data dashboards, branding, and advertising strategies, 
+              transforming ideas into visually compelling and user-friendly digital experiences. Our mission is to help 
+              businesses establish a strong online presence with intuitive interfaces, data-driven insights, and strategic 
+              branding solutions that engage and inspire audiences.
+            </p>
+          </div>
+          
+          <div className="about-hero-stats">
+            <div className="hero-stat-item">
+              <div className="hero-stat-number">100+</div>
+              <div className="hero-stat-text">Projects Completed</div>
             </div>
-            <div className="about-stat-item">
-              <div className="about-stat-number">10+</div>
-              <div className="about-stat-text">Happy Clients</div>
+            <div className="hero-stat-item">
+              <div className="hero-stat-number">98%</div>
+              <div className="hero-stat-text">Client Satisfaction</div>
             </div>
-            <div className="about-stat-item">
-              <div className="about-stat-number">100%</div>
-              <div className="about-stat-text">Client Satisfaction</div>
+            <div className="hero-stat-item">
+              <div className="hero-stat-number">6</div>
+              <div className="hero-stat-text">Core Services</div>
             </div>
           </div>
         </div>
-        <div className="about-intro-image">
-          <img src={aboutintro} alt="VizTech Solutions Team" />
+        
+        {/* Hero Image */}
+        <div className="about-hero-image">
+          <div className="hero-image-wrapper">
+            <img src={aboutintro} alt="VizTech Solutions - Digital Design Excellence" />
+            <div className="hero-image-overlay"></div>
+          </div>
         </div>
+      </div>
+      
+      {/* Floating Elements */}
+      <div className="hero-floating-elements">
+        <div className="floating-element floating-1"></div>
+        <div className="floating-element floating-2"></div>
+        <div className="floating-element floating-3"></div>
       </div>
     </section>
   );
