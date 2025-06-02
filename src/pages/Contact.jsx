@@ -137,7 +137,11 @@ const Contact = () => {
                 </div>
                 <div className="contact-info-content">
                   <h3>Visit Us</h3>
-                  <p>{CONTACT_INFO.location}</p>
+                  <a href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`} 
+                     target="_blank" 
+                     rel="noopener noreferrer">
+                    {CONTACT_INFO.location}
+                  </a>
                   <span className="contact-info-desc">Come say hello at our office</span>
                 </div>
               </div>

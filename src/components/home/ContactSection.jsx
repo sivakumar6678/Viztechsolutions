@@ -74,14 +74,14 @@ const ContactSection = () => {
         });
 
         if (sectionRef.current) {
-          sr.reveal('.contact-info', {
+          sr.reveal('.home-contact-info', {
             origin: 'left',
             distance: '50px',
             duration: 1000,
             delay: 200
           });
           
-          sr.reveal('.contact-form', {
+          sr.reveal('.home-contact-form', {
             origin: 'right',
             distance: '50px',
             duration: 1000,
@@ -97,42 +97,57 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section className="contact-section" ref={sectionRef}>
-      <div className="contact-container">
+    <section className="home-contact-section" ref={sectionRef}>
+      <div className="home-contact-container">
         {/* Left Side: Contact Info */}
-        <div className="contact-info">
-          <div className="contact-badge">Get In Touch</div>
-          <h2 className="contact-title">Let's Start a Conversation</h2>
-          <div className="contact-details">
-            <div className="contact-item">
-              <FaMapMarkerAlt />
-              <a href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`} 
-                 target="_blank" 
-                 rel="noopener noreferrer">
-                {CONTACT_INFO.location}
-              </a>
+        <div className="home-contact-info">
+          <div className="home-contact-badge">Get In Touch</div>
+          <h2 className="home-contact-title">Let's Start a Conversation</h2>
+          <div className="home-contact-details">
+            <div className="home-contact-item">
+              <div className="home-contact-icon-wrapper">
+                <FaMapMarkerAlt className="home-contact-icon" />
+              </div>
+              <div className="home-contact-item-content">
+                <h4>Visit Us</h4>
+                <a href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`} 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  {CONTACT_INFO.location}
+                </a>
+              </div>
             </div>
-            <div className="contact-item">
-              <FaEnvelope />
-              <a href={`mailto:${CONTACT_INFO.email}`}>
-                {CONTACT_INFO.email}
-              </a>
+            <div className="home-contact-item">
+              <div className="home-contact-icon-wrapper">
+                <FaEnvelope className="home-contact-icon" />
+              </div>
+              <div className="home-contact-item-content">
+                <h4>Email Us</h4>
+                <a href={`mailto:${CONTACT_INFO.email}`}>
+                  {CONTACT_INFO.email}
+                </a>
+              </div>
             </div>
-            <div className="contact-item">
-              <FaPhoneAlt />
-              <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>
-                {CONTACT_INFO.phone}
-              </a>
+            <div className="home-contact-item">
+              <div className="home-contact-icon-wrapper">
+                <FaPhoneAlt className="home-contact-icon" />
+              </div>
+              <div className="home-contact-item-content">
+                <h4>Call Us</h4>
+                <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>
+                  {CONTACT_INFO.phone}
+                </a>
+              </div>
             </div>
           </div>
         </div>
         
         {/* Right Side: Contact Form */}
-        <div className="contact-form">
-          <h3 className="form-title">
+        <div className="home-contact-form">
+          <h3 className="home-form-title">
             <FaEnvelope /> Send Us a Message
           </h3>
-          <form onSubmit={handleSubmit} className="contact-form-inner">
+          <form onSubmit={handleSubmit} className="home-contact-form-inner">
             <input 
               type="text" 
               placeholder="Your Name" 
@@ -140,7 +155,7 @@ const ContactSection = () => {
               value={formData.name}
               onChange={handleChange}
               required 
-              className="form-input"
+              className="home-form-input"
             />
             <input 
               type="email" 
@@ -149,7 +164,7 @@ const ContactSection = () => {
               value={formData.email}
               onChange={handleChange}
               required 
-              className="form-input"
+              className="home-form-input"
             />
             <input 
               type="text" 
@@ -158,7 +173,7 @@ const ContactSection = () => {
               value={formData.subject}
               onChange={handleChange}
               required 
-              className="form-input"
+              className="home-form-input"
             />
             <textarea 
               rows={5} 
@@ -167,16 +182,16 @@ const ContactSection = () => {
               value={formData.message}
               onChange={handleChange}
               required 
-              className="form-textarea"
+              className="home-form-textarea"
             />
             <button 
               type="submit" 
-              className={`contact-btn ${isSubmitting ? 'submitting' : ''}`}
+              className={`home-contact-btn ${isSubmitting ? 'submitting' : ''}`}
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <>
-                  <div className="spinner"></div>
+                  <div className="home-spinner"></div>
                   <span>Sending...</span>
                 </>
               ) : (
