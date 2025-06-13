@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaCalendarAlt, FaUser, FaArrowRight, FaClock } from 'react-icons/fa';
 import './BlogFeatured.css';
 import uiColorPalettesImg from '../../assets/images/blog/ui-color-palettes.jpg';
+import authorImageSrc from '../../assets/images/author.jpg';
 
 const BlogFeatured = () => {
   const sectionRef = useRef(null);
@@ -134,7 +135,7 @@ const BlogFeatured = () => {
               <div className="author-header">
                 <div className="author-image">
                   <img 
-                    src="https://viztechsolutions.in/images/author.jpg" 
+                    src={authorImageSrc}
                     alt="VizTech Solutions Author"
                     onError={(e) => {
                       e.target.style.display = 'none';

@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes, FaPhone, FaEnvelope, FaArrowRight } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaArrowRight, FaHome, FaInfoCircle, FaTools, FaBriefcase, FaBlog } from 'react-icons/fa';
 import './Header.css';
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // Navigation items array with icons
+  const navigationItems = [
+    { path: '/', label: 'Home', icon: <FaHome /> },
+    { path: '/about', label: 'About', icon: <FaInfoCircle /> },
+    { path: '/services', label: 'Services', icon: <FaTools /> },
+    { path: '/portfolio', label: 'Portfolio', icon: <FaBriefcase /> },
+    { path: '/blog', label: 'Blog', icon: <FaBlog /> }
+  ];
 
   // Handle scroll event to change header style
   useEffect(() => {
@@ -37,6 +46,25 @@ const Header = () => {
     setExpanded(!expanded);
   };
 
+  // Reusable navigation link component with improved handling
+  const NavigationLink = ({ item, isMobile = false, onClick }) => (
+    <NavLink 
+      to={item.path} 
+      className={({isActive}) => 
+        `${isMobile ? 'mobile-nav-link' : 'nav-link'} ${isActive ? 'active' : ''}`
+      }
+      onClick={onClick}
+      end={item.path === '/'} // Ensures home link is only active on exact match
+    >
+      <span>
+        {!isMobile && item.icon}
+        {isMobile && item.icon}
+        {item.label}
+      </span>
+      {isMobile && <FaArrowRight className="mobile-nav-arrow" />}
+    </NavLink>
+  );
+
   return (
     <header className={`professional-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
@@ -54,50 +82,11 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="desktop-navigation">
           <ul className="nav-list">
-            <li className="nav-item">
-              <NavLink 
-                to="/" 
-                className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}
-              >
-                Home
-              </NavLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavLink 
-                to="/about" 
-                className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}
-              >
-                About
-              </NavLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavLink 
-                to="/services" 
-                className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}
-              >
-                Services
-              </NavLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavLink 
-                to="/portfolio" 
-                className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}
-              >
-                Portfolio
-              </NavLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavLink 
-                to="/blog" 
-                className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}
-              >
-                Blog
-              </NavLink>
-            </li>
+            {navigationItems.map((item) => (
+              <li key={item.path} className="nav-item">
+                <NavigationLink item={item} />
+              </li>
+            ))}
           </ul>
         </nav>
         
@@ -143,60 +132,15 @@ const Header = () => {
           
           <nav className="mobile-nav-menu">
             <ul className="mobile-nav-list">
-              <li>
-                <NavLink 
-                  to="/" 
-                  className={({isActive}) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                  onClick={closeMenu}
-                >
-                  <span>Home</span>
-                  <FaArrowRight className="mobile-nav-arrow" />
-                </NavLink>
-              </li>
-              
-              <li>
-                <NavLink 
-                  to="/about" 
-                  className={({isActive}) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                  onClick={closeMenu}
-                >
-                  <span>About</span>
-                  <FaArrowRight className="mobile-nav-arrow" />
-                </NavLink>
-              </li>
-              
-              <li>
-                <NavLink 
-                  to="/services" 
-                  className={({isActive}) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                  onClick={closeMenu}
-                >
-                  <span>Services</span>
-                  <FaArrowRight className="mobile-nav-arrow" />
-                </NavLink>
-              </li>
-              
-              <li>
-                <NavLink 
-                  to="/portfolio" 
-                  className={({isActive}) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                  onClick={closeMenu}
-                >
-                  <span>Portfolio</span>
-                  <FaArrowRight className="mobile-nav-arrow" />
-                </NavLink>
-              </li>
-              
-              <li>
-                <NavLink 
-                  to="/blog" 
-                  className={({isActive}) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                  onClick={closeMenu}
-                >
-                  <span>Blog</span>
-                  <FaArrowRight className="mobile-nav-arrow" />
-                </NavLink>
-              </li>
+              {navigationItems.map((item) => (
+                <li key={item.path}>
+                  <NavigationLink 
+                    item={item} 
+                    isMobile={true} 
+                    onClick={closeMenu} 
+                  />
+                </li>
+              ))}
             </ul>
           </nav>
           
