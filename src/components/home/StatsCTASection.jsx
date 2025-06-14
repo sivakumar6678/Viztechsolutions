@@ -1,9 +1,20 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './StatsCTASection.css';
 
 const StatsCTASection = () => {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     // Using dynamic import for ScrollReveal
@@ -45,23 +56,24 @@ const StatsCTASection = () => {
     initScrollReveal();
   }, []);
 
+  // Stats data
+  const statsData = [
+    { number: "12+", text: "Projects Completed" },
+    { number: "10+", text: "Happy Clients" },
+    { number: "100%", text: "Client Satisfaction" }
+  ];
+
   return (
     <section className="stats-cta-section" ref={sectionRef}>
       <div className="stats-cta-container">
         {/* Left Side: Stats */}
         <div className="stats-left">
-          <div className="stats-block">
-            <div className="stats-number">12+</div>
-            <div className="stats-text">Projects</div>
-          </div>
-          <div className="stats-block">
-            <div className="stats-number">10+</div>
-            <div className="stats-text">Clients</div>
-          </div>
-          <div className="stats-block">
-            <div className="stats-number">100%</div>
-            <div className="stats-text">Satisfaction</div>
-          </div>
+          {statsData.map((stat, index) => (
+            <div className="stats-block" key={index}>
+              <div className="stats-number">{stat.number}</div>
+              <div className="stats-text">{stat.text}</div>
+            </div>
+          ))}
         </div>
         
         {/* Right Side: CTA */}

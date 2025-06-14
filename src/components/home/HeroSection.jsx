@@ -1,11 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaEye, FaPlay } from 'react-icons/fa';
+import { FaArrowRight, FaEye, FaPlay, FaChevronDown } from 'react-icons/fa';
 import './HeroSection.css';
 import bg2 from '../../assets/images/BG3.png';
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Smooth scroll function for mobile "scroll down" button
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector('.hero-section-two');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // Initialize animations when component mounts
   useEffect(() => {
@@ -15,6 +34,7 @@ const HeroSection = () => {
         const ScrollRevealModule = await import('scrollreveal');
         const ScrollReveal = ScrollRevealModule.default;
         
+        // Base configuration for ScrollReveal
         const sr = ScrollReveal({
           origin: 'bottom',
           distance: '50px',
@@ -25,81 +45,118 @@ const HeroSection = () => {
           reset: false
         });
 
-        // Apply animations with better sequencing
-        if (sectionRef.current) {
+        // Animation configurations
+        const animations = {
           // Welcome section animations
-          sr.reveal('.hero-welcome-badge', {
-            origin: 'top',
-            distance: '20px',
-            duration: 600,
-            delay: 100
-          });
-          
-          sr.reveal('.hero-welcome-title', {
-            origin: 'bottom',
-            distance: '30px',
-            duration: 800,
-            delay: 300
-          });
-          
-          sr.reveal('.hero-welcome-subtitle', {
-            origin: 'bottom',
-            distance: '20px',
-            duration: 600,
-            delay: 500
-          });
-          
-          sr.reveal('.hero-welcome-cta', {
-            scale: 0.8,
-            duration: 600,
-            delay: 700
-          });
+          welcomeBadge: {
+            selector: '.hero-welcome-badge',
+            config: {
+              origin: 'top',
+              distance: '20px',
+              duration: 600,
+              delay: 100
+            }
+          },
+          welcomeTitle: {
+            selector: '.hero-welcome-title',
+            config: {
+              origin: 'bottom',
+              distance: '30px',
+              duration: 800,
+              delay: 300
+            }
+          },
+          welcomeSubtitle: {
+            selector: '.hero-welcome-subtitle',
+            config: {
+              origin: 'bottom',
+              distance: '20px',
+              duration: 600,
+              delay: 500
+            }
+          },
+          welcomeCta: {
+            selector: '.hero-welcome-cta',
+            config: {
+              scale: 0.8,
+              duration: 600,
+              delay: 700
+            }
+          },
+          mobileScroll: {
+            selector: '.mobile-scroll-indicator',
+            config: {
+              origin: 'bottom',
+              distance: '20px',
+              duration: 600,
+              delay: 900
+            }
+          },
           
           // Section Two animations
-          sr.reveal('.hero-section-two-badge', {
-            origin: 'top',
-            distance: '20px',
-            duration: 600,
-            delay: 200
-          });
-          
-          sr.reveal('.hero-section-two-title', {
-            origin: 'left',
-            distance: '40px',
-            duration: 800,
-            delay: 400
-          });
-          
-          sr.reveal('.hero-section-two-description', {
-            origin: 'left',
-            distance: '30px',
-            duration: 600,
-            delay: 600
-          });
-          
-          sr.reveal('.hero-section-two-feature', {
-            origin: 'left',
-            distance: '30px',
-            duration: 600,
-            delay: 800,
-            interval: 200
-          });
-          
-          sr.reveal('.hero-section-two-buttons', {
-            origin: 'bottom',
-            distance: '20px',
-            duration: 600,
-            delay: 1200
-          });
-          
-          sr.reveal('.hero-section-two-visual', {
-            origin: 'right',
-            distance: '50px',
-            duration: 1000,
-            delay: 400
-          });
-          
+          sectionTwoBadge: {
+            selector: '.hero-section-two-badge',
+            config: {
+              origin: 'top',
+              distance: '20px',
+              duration: 600,
+              delay: 200
+            }
+          },
+          sectionTwoTitle: {
+            selector: '.hero-section-two-title',
+            config: {
+              origin: isMobile ? 'bottom' : 'left',
+              distance: isMobile ? '30px' : '40px',
+              duration: 800,
+              delay: 400
+            }
+          },
+          sectionTwoDescription: {
+            selector: '.hero-section-two-description',
+            config: {
+              origin: isMobile ? 'bottom' : 'left',
+              distance: '30px',
+              duration: 600,
+              delay: 600
+            }
+          },
+          sectionTwoFeature: {
+            selector: '.hero-section-two-feature',
+            config: {
+              origin: isMobile ? 'bottom' : 'left',
+              distance: '30px',
+              duration: 600,
+              delay: 800,
+              interval: 200
+            }
+          },
+          sectionTwoButtons: {
+            selector: '.hero-section-two-buttons',
+            config: {
+              origin: 'bottom',
+              distance: '20px',
+              duration: 600,
+              delay: 1200
+            }
+          },
+          sectionTwoVisual: {
+            selector: '.hero-section-two-visual',
+            config: {
+              origin: isMobile ? 'bottom' : 'right',
+              distance: '50px',
+              duration: 1000,
+              delay: isMobile ? 1400 : 400
+            }
+          }
+        };
 
+        // Apply animations if section is available
+        if (sectionRef.current) {
+          // Apply all animations
+          Object.values(animations).forEach(animation => {
+            sr.reveal(animation.selector, animation.config);
+          });
         }
       } catch (error) {
         console.error('Failed to load ScrollReveal:', error);
@@ -107,7 +164,54 @@ const HeroSection = () => {
     };
 
     initScrollReveal();
-  }, []);
+  }, [isMobile]);
+
+  // Features data for better maintainability
+  const features = [
+    {
+      icon: "🎨",
+      title: "Creative Design",
+      description: "Stunning visuals that captivate"
+    },
+    {
+      icon: "⚡",
+      title: "Fast Development",
+      description: "Quick turnaround times"
+    },
+    {
+      icon: "🔧",
+      title: "24/7 Support",
+      description: "Always here when you need us"
+    }
+  ];
+
+  // Hero image component for reuse
+  const HeroVisual = ({ className = "" }) => (
+    <div className={`hero-section-two-visual ${className}`}>
+      <div className="hero-section-two-image-wrapper">
+        <img 
+          src={bg2} 
+          alt="Digital Solutions" 
+          className="hero-section-two-image"
+          loading="lazy"
+        />
+        <div className="hero-section-two-overlay">
+          <span>Innovation in Action</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Feature item component
+  const FeatureItem = ({ icon, title, description }) => (
+    <div className="hero-section-two-feature">
+      <div className="hero-section-two-feature-icon">{icon}</div>
+      <div className="hero-section-two-feature-text">
+        <h4>{title}</h4>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -123,14 +227,17 @@ const HeroSection = () => {
         
         <div className="hero-welcome-container">
           <div className="hero-welcome-section">
+            {/* Welcome Badge */}
             <div className="hero-welcome-badge">
               <span className="hero-badge-text">🚀 Premium Digital Solutions</span>
             </div>
             
+            {/* Main Title */}
             <h1 className="hero-welcome-title">
               WELCOME TO <span className="hero-brand-name">VIZTECHSOLUTIONS</span>
             </h1>
             
+            {/* Subtitle with Highlights */}
             <div className="hero-welcome-subtitle">
               <span className="hero-subtitle-highlight">DESIGN</span>
               <span className="hero-subtitle-separator">•</span>
@@ -139,6 +246,7 @@ const HeroSection = () => {
               <span className="hero-subtitle-highlight">DELIVER</span>
             </div>
             
+            {/* CTA Section */}
             <div className="hero-welcome-cta">
               <Link to="/contact" className="hero-cta-book-call">
                 <span>Book a Free Consultation</span>
@@ -148,6 +256,12 @@ const HeroSection = () => {
                 💡 Free 30-minute strategy session
               </div>
             </div>
+            
+            {/* Mobile Scroll Indicator */}
+            <div className="mobile-scroll-indicator" onClick={scrollToNextSection}>
+              <span>Scroll Down</span>
+              <FaChevronDown className="scroll-icon" />
+            </div>
           </div>
         </div>
       </section>
@@ -155,6 +269,9 @@ const HeroSection = () => {
       {/* Second Section: Transform Ideas Section */}
       <section className="hero-section-two">
         <div className="hero-section-two-container">
+          {/* Mobile Order Control - Visual will appear first on mobile */}
+          {isMobile && <HeroVisual className="mobile-first" />}
+          
           {/* Left Content */}
           <div className="hero-section-two-content">
             {/* Badge */}
@@ -177,29 +294,14 @@ const HeroSection = () => {
             
             {/* Features Grid */}
             <div className="hero-section-two-features">
-              <div className="hero-section-two-feature">
-                <div className="hero-section-two-feature-icon">🎨</div>
-                <div className="hero-section-two-feature-text">
-                  <h4>Creative Design</h4>
-                  <p>Stunning visuals that captivate</p>
-                </div>
-              </div>
-              
-              <div className="hero-section-two-feature">
-                <div className="hero-section-two-feature-icon">⚡</div>
-                <div className="hero-section-two-feature-text">
-                  <h4>Fast Development</h4>
-                  <p>Quick turnaround times</p>
-                </div>
-              </div>
-              
-              <div className="hero-section-two-feature">
-                <div className="hero-section-two-feature-icon">🔧</div>
-                <div className="hero-section-two-feature-text">
-                  <h4>24/7 Support</h4>
-                  <p>Always here when you need us</p>
-                </div>
-              </div>
+              {features.map((feature, index) => (
+                <FeatureItem 
+                  key={index}
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                />
+              ))}
             </div>
             
             {/* CTA Buttons */}
@@ -215,17 +317,8 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Right Visual */}
-          <div className="hero-section-two-visual">
-            <div className="hero-section-two-image-wrapper">
-              <img src={bg2} alt="Digital Solutions" className="hero-section-two-image" />
-              <div className="hero-section-two-overlay">
-                <span>Innovation in Action</span>
-              </div>
-            </div>
-            
-
-          </div>
+          {/* Right Visual - Only shown on desktop */}
+          {!isMobile && <HeroVisual />}
         </div>
       </section>
     </>
