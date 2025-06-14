@@ -464,13 +464,9 @@
   background-clip: text;
   position: relative;
   display: inline-block;
-  animation: shimmer 3s ease-in-out infinite;
 }
 
-@keyframes shimmer {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.2); }
-}
+
 
 .hero-welcome-subtitle {
   font-size: 1.8rem;
