@@ -1,0 +1,85 @@
+/* Clients Section Styles */
+.clients-section {
+  padding: 60px 0;
+  /* background-color: var(--gray-100); */
+  overflow: hidden;
+}
+
+/* Marquee Container */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--gray-100), transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--gray-100), transparent);
+}
+
+/* Marquee Content */
+.marquee-content {
+  display: flex;
+  align-items: center;
+  animation: marquee 15s linear infinite;
+  padding: 20px 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+/* Client Logos */
+.client-logo {
+  height: 100px;
+  width: auto;
+  margin: 0 30px;
+  opacity: 0.7;
+  /* filter: grayscale(100%); */
+  transition: all 0.3s ease;
+}
+
+.client-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 40px 0;
+  }
+  
+  .client-logo {
+    height: 40px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .client-logo {
+    height: 30px;
+    margin: 0 15px;
+  }
+}

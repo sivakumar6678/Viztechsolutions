@@ -1,0 +1,127 @@
+/* Chat Section Styles */
+.chat-section {
+  padding: 80px 0;
+  background-color: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Left Side: Text */
+.chat-text {
+  flex: 2;
+}
+
+.chat-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.chat-subtext {
+  font-size: 1.1rem;
+  color: var(--gray-300);
+  display: flex;
+  align-items: center;
+}
+
+/* Right Side: Button */
+.chat-button {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat-quote {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.chat-quote-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.chat-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.chat-quote:hover {
+  background-color: var(--secondary-dark);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .chat-section {
+    padding: 60px 0;
+  }
+  
+  .chat-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .chat-heading {
+    font-size: 2.2rem;
+  }
+  
+  .chat-subtext {
+    justify-content: center;
+  }
+  
+  .chat-button {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-heading {
+    font-size: 1.8rem;
+  }
+  
+  .chat-subtext {
+    font-size: 1rem;
+  }
+  
+  .chat-quote {
+    padding: 15px 25px;
+  }
+  
+  .chat-quote-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .chat-section {
+    padding: 40px 0;
+  }
+  
+  .chat-heading {
+    font-size: 1.6rem;
+  }
+}
