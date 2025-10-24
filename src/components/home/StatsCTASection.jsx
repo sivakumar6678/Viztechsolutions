@@ -58,9 +58,9 @@ const StatsCTASection = () => {
 
   // Stats data
   const statsData = [
-    { number: "12+", text: "Projects Completed" },
-    { number: "10+", text: "Happy Clients" },
-    { number: "100%", text: "Client Satisfaction" }
+    { number: "100+", text: "Projects Completed" },
+    { number: "80+", text: "Happy Clients" },
+    { number: "90%", text: "Client Satisfaction" }
   ];
 
   return (

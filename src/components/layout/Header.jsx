@@ -250,7 +250,7 @@ const Header = () => {
               </a>
               <a href="mailto:info@viztechsolutions.in" className="mobile-contact-item" aria-label="Email us">
                 <FaEnvelope aria-hidden="true" />
-                <span>info@viztechsolutions.in</span>
+                <span>viztechsolutions.in@gmail.com</span>
               </a>
             </div>
             

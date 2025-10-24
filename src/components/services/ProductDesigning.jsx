@@ -25,8 +25,8 @@ const ProductDesigning = () => {
   const animationTimers = useRef([]);
 
   const stats = [
-    { number: 150, suffix: '+', label: 'Products Designed', icon: <FaRocket /> },
-    { number: 98, suffix: '%', label: 'User Satisfaction', icon: <FaChartLine /> },
+    { number: 100, suffix: '+', label: 'Products Designed', icon: <FaRocket /> },
+    { number: 90, suffix: '%', label: 'User Satisfaction', icon: <FaChartLine /> },
     { number: 45, suffix: '%', label: 'Avg. Conversion Boost', icon: <FaShieldAlt /> },
     { number: 24, suffix: '/7', label: 'Design Support', icon: <FaCog /> }
   ];
@@ -35,12 +35,6 @@ const ProductDesigning = () => {
   useEffect(() => {
     console.log('ProductDesigning component mounted');
     
-    // Initialize stats with 0 values to prevent flash
-    const initialStats = {};
-    stats.forEach((stat, index) => {
-      initialStats[index] = `0${stat.suffix}`;
-    });
-    setAnimatedStats(initialStats);
   }, []);
 
   const designServices = [
@@ -100,85 +94,8 @@ const ProductDesigning = () => {
     }
   ];
 
-  // Optimized animate numbers function using requestAnimationFrame
-  const animateNumber = useCallback((targetNumber, suffix, key) => {
-    const startTime = performance.now();
-    const duration = 2500; // 2.5 seconds for smooth animation
-    let animationId;
-    
-    const animate = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function for smooth animation (ease-out)
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(targetNumber * easeOut);
-      
-      setAnimatedStats(prev => {
-        // Only update if value has changed to prevent unnecessary re-renders
-        const newValue = current + suffix;
-        if (prev[key] !== newValue) {
-          return {
-            ...prev,
-            [key]: newValue
-          };
-        }
-        return prev;
-      });
-      
-      if (progress < 1) {
-        animationId = requestAnimationFrame(animate);
-        animationTimers.current.push(animationId);
-      } else {
-        // Animation complete, remove from timers array
-        animationTimers.current = animationTimers.current.filter(id => id !== animationId);
-      }
-    };
-    
-    animationId = requestAnimationFrame(animate);
-    animationTimers.current.push(animationId);
-    
-    return animationId;
-  }, []);
 
-  // Intersection Observer for animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setIsVisible(true);
-            setHasAnimated(true);
-            
-            // Clear any existing animations
-            animationTimers.current.forEach(id => cancelAnimationFrame(id));
-            animationTimers.current = [];
-            
-            // Animate stats when they come into view (only once)
-            stats.forEach((stat, index) => {
-              setTimeout(() => {
-                animateNumber(stat.number, stat.suffix, index);
-              }, index * 300); // Increased delay for better staggered effect
-            });
-            
-            // Disconnect observer after first animation
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 } // Increased threshold for better trigger point
-    );
 
-    if (sectionRef.current && !hasAnimated) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-      // Cleanup all animations on unmount
-      animationTimers.current.forEach(id => cancelAnimationFrame(id));
-    };
-  }, [animateNumber, stats, hasAnimated]);
 
   useEffect(() => {
     // Using dynamic import for ScrollReveal
