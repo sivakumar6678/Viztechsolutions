@@ -107,7 +107,7 @@ const PortfolioCTA = () => {
                 </div>
                 <div className="method-content">
                   <span className="method-label">Email Us</span>
-                  <a href="mailto:info@viztechsolutions.in" className="method-value">info@viztechsolutions.in</a>
+                  <a href="mailto:viztechsolutions.in@gmail.com" className="method-value">viztechsolutions.in@gmail.com</a>
                 </div>
               </div>
               

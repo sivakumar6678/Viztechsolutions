@@ -98,7 +98,7 @@ const ServicesCTA = () => {
                 <FaEnvelope />
                 <div>
                   <span className="contact-label">Email Us</span>
-                  <a href="mailto:info@viztechsolutions.in" className="contact-value">info@viztechsolutions.in</a>
+                  <a href="mailto:viztechsolutions.in@gmail.com" className="contact-value">viztechsolutions.in@gmail.com</a>
                 </div>
               </div>
               <div className="contact-option">

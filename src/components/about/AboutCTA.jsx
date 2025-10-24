@@ -96,7 +96,7 @@ const AboutCTA = () => {
               <FaEnvelope />
               <div>
                 <span className="cta-contact-label">Email Us</span>
-                <a href="mailto:info@viztechsolutions.in" className="cta-contact-value">info@viztechsolutions.in</a>
+                <a href="mailto:viztechsolutions.in@gmail.com" className="cta-contact-value">viztechsolutions.in@gmail.com</a>
               </div>
             </div>
           </div>

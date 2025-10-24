@@ -1,16 +1,21 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaPaperPlane } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+
 import './ContactSection.css';
+import { sub } from 'framer-motion/client';
 
 // Contact information constants
 const CONTACT_INFO = {
-  email: 'info@viztechsolutions.in',
+  email: 'viztechsolutions.in@gmail.com',
   phone: '+91 83319 94495',
   location: 'Chennai, Tamil Nadu, India'
 };
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
+    const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,8 +41,27 @@ const ContactSection = () => {
       console.log('Form submitted:', formData);
       
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      const response = await fetch('https://formsubmit.co/ajax/4dfd538da51b6676d3e420546e01ba51', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                subject: formData.subject,
+                message: formData.message,
+                _subject: 'New Contact Form Submission!',
+                _captcha: 'false',
+                _template: 'table'
+              })
+            });
+
+            if (response.ok) {
+              setFormData({ name: '', email: '', message: '' });
+              navigate('/thank-you');
+            } else {
+              console.error('Form submission failed:', response.statusText);
+              alert('Something went wrong. Please try again later.');
+            }      
       // Reset form
       setFormData({
         name: '',

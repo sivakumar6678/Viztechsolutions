@@ -119,7 +119,7 @@ const ThankYou = () => {
                 <FaEnvelope />
                 <div>
                   <span className="contact-label">Email Us</span>
-                  <span className="contact-value">info@viztechsolutions.in</span>
+                  <span className="contact-value">viztechsolutions.in@gmail.com </span>
                 </div>
               </a>
               
@@ -139,10 +139,10 @@ const ThankYou = () => {
                 <a href="https://www.linkedin.com/company/viztechsolutions" target="_blank" rel="noopener noreferrer">
                   LinkedIn
                 </a>
-                <a href="https://twitter.com/viztechsolutions" target="_blank" rel="noopener noreferrer">
-                  Twitter
+                <a href="https://www.facebook.com/profile.php?id=61567271925428&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+                  Facebook
                 </a>
-                <a href="https://instagram.com/viztechsolutions" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/viztechsolutions.in/" target="_blank" rel="noopener noreferrer">
                   Instagram
                 </a>
               </div>
